@@ -10,17 +10,10 @@ import SwiftUI
 struct toolbar: View {
     var body: some View {
         NavigationView {
-            VStack {
-            Text("Hello, World!")
-            }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar, content: {
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(systemName: "car")
-                    })
-                })
+            ScrollView {
+                VStack {
+                    Image("turtlerock")
+                }
             }
         }
     }
