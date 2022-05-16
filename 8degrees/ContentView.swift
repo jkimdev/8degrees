@@ -8,76 +8,107 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        NavigationView {
-            VStack{
-                ScrollView(showsIndicators: false) {
-                    ZStack(alignment: .bottomLeading){
-                        Image("turtlerock")
-                            .resizable()
-                            .frame(height: UIScreen.main.bounds.height/1.8)
-                        
-                        VStack{
-                            HStack{
-                                Image(systemName: "mappin.and.ellipse")
-                                VStack(alignment: .leading){
-                                    Text("Turtlerock")
-                                    Text("Irvine, CA 92603, USA")
-                                        .font(.caption2)
-                                }
-                            }.padding()
-                                .foregroundColor(.white)
-                        }
-                    }
-                    HStack {
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(systemName: "car").renderingMode(.template)
-                                .imageScale(.large)
-                                .foregroundColor(.black)
-                            Text("\(22)km")
-                                .font(.caption)
-                                .foregroundColor(.black)
-                        })
-                        Spacer()
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(systemName: "sun.min").renderingMode(.template)
-                                .imageScale(.large).foregroundColor(.black)
-                            Text("\(17)°C")
-                                .font(.caption)
-                                .foregroundColor(.black)
-                        })
-                    }.padding([.horizontal, .vertical])
-                    ScrollView(showsIndicators: false){
-                        VStack {
-                            Text("Turtle Rock is a neighborhood in the south part of Irvine, Orange County, California, near Concordia University, Irvine and the University of California, Irvine. It is bounded to the north by University Drive and Mason Regional Park, to the east by the Strawberry Farms Golf Club and Ridgeline Drive, to the south by Shady Canyon Drive, and to the west by Culver Drive. Turtle Rock is one of the five \"villages\" originally forming Irvine; its 1967 founding is commemorated by a sculpture of a turtle in Turtle Rock Community Park, at the corner of Turtle Rock and Sunnyhill Drives. A two-lane internal loop road, Turtle Rock Drive, encircles the village and carries traffic between housing developments and the city's main streets.")
-                                .font(.body)
-                                .lineSpacing(10)
-                            Spacer()
-                            
-                        }
-                    }.padding([.horizontal])
-                    
-                }
-                
-            }.edgesIgnoringSafeArea(.top)
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(systemName: "hand.thumbsup.fill").renderingMode(.template).foregroundColor(.teal)
-                            Text("213")
-                                .font(.caption)
-                                .foregroundColor(.black)
-                        })
-                    }
-                }
+    
+    private let imageHeight: CGFloat = 300 // 1
+    private let collapsedImageHeight: CGFloat = 75 // 2
+    
+    
+    // 1
+    private func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
+        geometry.frame(in: .global).minY
+    }
+    
+    // 2
+    private func getOffsetForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
+        let offset = getScrollOffset(geometry)
+        let sizeOffScreen = imageHeight - collapsedImageHeight // 3
+        
+        
+        if offset < -sizeOffScreen {
+            // Since we want 75 px fixed on the screen we get our offset of -225 or anything less than. Take the abs value of
+            let imageOffset = abs(min(-sizeOffScreen, offset))
+            
+            // Now we can the amount of offset above our size off screen. So if we've scrolled -250px our size offscreen is -225px we offset our image by an additional 25 px to put it back at the amount needed to remain offscreen/amount on screen.
+            return imageOffset - sizeOffScreen
         }
+        
+        // Image was pulled down
+        if offset > 0 {
+            return -offset
+        }
+        
+        return 0
+    }
+    
+    private func getHeightForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
+        let offset = getScrollOffset(geometry)
+        let imageHeight = geometry.size.height
+        
+        if offset > 0 {
+            return imageHeight + offset
+        }
+        
+        return imageHeight
+    }
+    
+    private func getBlurRadiusForImage(_ geometry: GeometryProxy) -> CGFloat {
+        // 2
+        let offset = geometry.frame(in: .global).maxY
+        
+        let height = geometry.size.height
+        let blur = (height - max(offset, 0)) / height // 3 (values will range from 0 - 1)
+        return blur * 6 // Values will range from 0 - 6
+    }
+    
+    var body: some View {
+        ScrollView {
+            
+            GeometryReader { geo in
+                Image("rollingstone")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: self.getHeightForHeaderImage(geo))
+                    .blur(radius: getBlurRadiusForImage(geo))
+                    .clipped()
+                    .offset(y: getOffsetForHeaderImage(geo))
+            }.frame(height: 300)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                
+                HStack {
+                    
+                    // 2
+                    Image("person")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 55, height: 55)
+                        .clipShape(Circle())
+                        .shadow(radius: 4)
+                    
+                    // 3
+                    VStack(alignment: .leading) {
+                        Text("Article Written By")
+                            .font(.custom("Avenir Next", size: 12))
+                            .foregroundColor(.gray)
+                        Text("Jaemin Kim")
+                            .font(.custom("Avenir Next", size: 17))
+                    }
+                }
+                Text("15 May 2022 • 5 min read")
+                    .font(.custom("AvenirNext-Regular", size: 12))
+                    .foregroundColor(.gray)
+                
+                Text("How to build a parallax scroll view")
+                    .font(.custom("Avenir Next", size: 28))
+                Text(loremIpsum)
+                    .font(.custom("AvenirNext-Regular", size: 17))
+                
+            }
+            .padding(.horizontal)
+            .padding(.top, 16.0)
+        }
+        .ignoresSafeArea(.all)
+        
     }
 }
 
@@ -86,3 +117,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+let loremIpsum = "Lorem ipsum dolor sit amet consectetur adipiscing elit donec, gravida commodo hac non mattis augue duis vitae inceptos, laoreet taciti at vehicula cum arcu dictum. Cras netus vivamus sociis pulvinar est erat, quisque imperdiet velit a justo maecenas, pretium gravida ut himenaeos nam. Tellus quis libero sociis class nec hendrerit, id proin facilisis praesent bibendum vehicula tristique, fringilla augue vitae primis turpis. Sagittis vivamus sem morbi nam mattis phasellus vehicula facilisis suscipit posuere metus, iaculis vestibulum viverra nisl ullamcorper lectus curabitur himenaeos dictumst malesuada tempor, cras maecenas enim est eu turpis hac sociosqu tellus magnis. Sociosqu varius feugiat volutpat justo fames magna malesuada, viverra neque nibh parturient eu nascetur, cursus sollicitudin placerat lobortis nunc imperdiet. Leo lectus euismod morbi placerat pretium aliquet ultricies metus, augue turpis vulputa te dictumst mattis egestas laoreet, cubilia habitant magnis lacinia vivamus etiam aenean."
