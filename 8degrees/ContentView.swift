@@ -12,7 +12,7 @@ struct ContentView: View {
     private let imageHeight: CGFloat = 300 // 1
     private let collapsedImageHeight: CGFloat = 75 // 2
     @State var barHidden: Bool = true
-    
+
     // 1
     private func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
         geometry.frame(in: .global).minY
@@ -23,16 +23,6 @@ struct ContentView: View {
         
         let offset = getScrollOffset(geometry)
         let sizeOffScreen = imageHeight - collapsedImageHeight // 3
-        
-        print("offset \(offset)")
-        print("offS \(-sizeOffScreen)")
-        
-        if offset >= -(sizeOffScreen - 10) {
-            barHidden = true
-        }
-        else {
-            barHidden = false
-        }
         
         if offset < -sizeOffScreen {
             // Since we want 75 px fixed on the screen we get our offset of -225 or anything less than. Take the abs value of
@@ -53,7 +43,7 @@ struct ContentView: View {
     private func getHeightForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
         let offset = getScrollOffset(geometry)
         let imageHeight = geometry.size.height
-                
+        
         if offset > 0 {
             return imageHeight + offset
         }
@@ -72,7 +62,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 
                 GeometryReader { geo in
                     Image("rollingstone")
@@ -82,7 +72,6 @@ struct ContentView: View {
                         .blur(radius: getBlurRadiusForImage(geo))
                         .clipped()
                         .offset(y: getOffsetForHeaderImage(geo))
-                        .opacity(barHidden ? 1 : 0)
                 }.frame(height: 300)
                 
                 VStack(alignment: .leading, spacing: 10) {
@@ -114,13 +103,22 @@ struct ContentView: View {
                         .font(.custom("Avenir Next", size: 28))
                     Text(loremIpsum)
                         .font(.custom("AvenirNext-Regular", size: 17))
-                    
+                        
                 }
                 .padding(.horizontal)
                 .padding(.top, 16.0)
             }
-            .ignoresSafeArea(.all)
-            .navigationBarHidden(barHidden ? true : false)
+            .ignoresSafeArea(edges: .top)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: "arrow.backward").foregroundColor(.white)
+                }
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Spacer()
+                    Image(systemName: "hands.clap")
+                    Spacer()
+                }
+            }
         }
     }
 }
