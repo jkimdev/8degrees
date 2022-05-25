@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134D1E08283D12950000A40C /* EastSeaDokdo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */; };
 		1363FCDF283B991700DC2D00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* MainView.swift */; };
+		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
 		13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F1918C2823499F0010B748 /* _degreesApp.swift */; };
 		13F1918F2823499F0010B748 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F1918E2823499F0010B748 /* ContentView.swift */; };
 		13F191912823499F0010B748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F191902823499F0010B748 /* Assets.xcassets */; };
@@ -38,7 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EastSeaDokdo-Regular.ttf"; path = "../../../../Downloads/East_Sea_Dokdo/EastSeaDokdo-Regular.ttf"; sourceTree = "<group>"; };
 		1363FCDE283B991700DC2D00 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
 		13F191892823499F0010B748 /* 8degrees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 8degrees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F1918C2823499F0010B748 /* _degreesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _degreesApp.swift; sourceTree = "<group>"; };
 		13F1918E2823499F0010B748 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		134D1E05283D12070000A40C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		13B15398283DC0C700A9D0FF /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
 		13F191802823499F0010B748 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +122,8 @@
 		13F1918B2823499F0010B748 /* 8degrees */ = {
 			isa = PBXGroup;
 			children = (
+				13B15398283DC0C700A9D0FF /* CardView */,
+				134D1E05283D12070000A40C /* Fonts */,
 				13F1918C2823499F0010B748 /* _degreesApp.swift */,
 				13F1918E2823499F0010B748 /* ContentView.swift */,
 				1363FCDE283B991700DC2D00 /* MainView.swift */,
@@ -245,6 +267,7 @@
 			files = (
 				13F191942823499F0010B748 /* Preview Assets.xcassets in Resources */,
 				13F191912823499F0010B748 /* Assets.xcassets in Resources */,
+				134D1E08283D12950000A40C /* EastSeaDokdo-Regular.ttf in Resources */,
 				13F191BD2826BD200010B748 /* landmarkData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F1918F2823499F0010B748 /* ContentView.swift in Sources */,
+				13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */,
 				13F191BB2826BCC30010B748 /* ModelData.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* MainView.swift in Sources */,
@@ -436,6 +460,7 @@
 				DEVELOPMENT_TEAM = 5H679H8G3X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-degrees-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -465,6 +490,7 @@
 				DEVELOPMENT_TEAM = 5H679H8G3X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-degrees-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

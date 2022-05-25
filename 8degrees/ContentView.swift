@@ -12,8 +12,9 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("8Degrees").italic().font(.system(size: 28))
-                Spacer()
+                Text("8Degrees").italic().font(Font.custom("EastSeaDokdo-Regular", size: 50))
+                
+                MainNoticeBannerView()
             }
         }
     }
