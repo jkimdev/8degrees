@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		13317B33283E76D700094156 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B32283E76D700094156 /* FontExtension.swift */; };
+		13317B37283F73A800094156 /* ONE-Mobile-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13317B34283F73A800094156 /* ONE-Mobile-Light.otf */; };
+		13317B38283F73A800094156 /* ONE-Mobile-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13317B35283F73A800094156 /* ONE-Mobile-Bold.otf */; };
+		13317B39283F73A800094156 /* ONE-Mobile-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13317B36283F73A800094156 /* ONE-Mobile-Regular.otf */; };
 		134D1E08283D12950000A40C /* EastSeaDokdo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */; };
 		1363FCDF283B991700DC2D00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* MainView.swift */; };
 		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
@@ -41,10 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13317B2E283E741400094156 /* ONE Mobile Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE Mobile Bold.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE Mobile Bold.otf"; sourceTree = "<group>"; };
-		13317B2F283E741400094156 /* ONE Mobile Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE Mobile Light.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE Mobile Light.otf"; sourceTree = "<group>"; };
-		13317B30283E741400094156 /* ONE Mobile Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE Mobile Regular.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE Mobile Regular.otf"; sourceTree = "<group>"; };
 		13317B32283E76D700094156 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		13317B34283F73A800094156 /* ONE-Mobile-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE-Mobile-Light.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE-Mobile-Light.otf"; sourceTree = "<group>"; };
+		13317B35283F73A800094156 /* ONE-Mobile-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE-Mobile-Bold.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE-Mobile-Bold.otf"; sourceTree = "<group>"; };
+		13317B36283F73A800094156 /* ONE-Mobile-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE-Mobile-Regular.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE-Mobile-Regular.otf"; sourceTree = "<group>"; };
 		134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EastSeaDokdo-Regular.ttf"; path = "../../../../Downloads/East_Sea_Dokdo/EastSeaDokdo-Regular.ttf"; sourceTree = "<group>"; };
 		1363FCDE283B991700DC2D00 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
@@ -100,9 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */,
-				13317B2E283E741400094156 /* ONE Mobile Bold.otf */,
-				13317B2F283E741400094156 /* ONE Mobile Light.otf */,
-				13317B30283E741400094156 /* ONE Mobile Regular.otf */,
+				13317B35283F73A800094156 /* ONE-Mobile-Bold.otf */,
+				13317B34283F73A800094156 /* ONE-Mobile-Light.otf */,
+				13317B36283F73A800094156 /* ONE-Mobile-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -282,8 +285,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13317B37283F73A800094156 /* ONE-Mobile-Light.otf in Resources */,
+				13317B38283F73A800094156 /* ONE-Mobile-Bold.otf in Resources */,
 				13F191942823499F0010B748 /* Preview Assets.xcassets in Resources */,
 				13F191912823499F0010B748 /* Assets.xcassets in Resources */,
+				13317B39283F73A800094156 /* ONE-Mobile-Regular.otf in Resources */,
 				134D1E08283D12950000A40C /* EastSeaDokdo-Regular.ttf in Resources */,
 				13F191BD2826BD200010B748 /* landmarkData.json in Resources */,
 			);

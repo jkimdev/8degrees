@@ -9,14 +9,14 @@ import SwiftUI
 
 extension Font {
     static func fontRegular(size: Int) -> Font {
-        return Font.custom("ONE Mobile Regular", size: CGFloat(size))
+        return Font.custom("ONEMobileOTFRegular", size: CGFloat(size))
     }
     
     static func fontLight(size: Int) -> Font {
-        return Font.custom("ONE Mobile Light", size: CGFloat(size))
+        return Font.custom("ONEMobileOTFLight", size: CGFloat(size))
     }
     
     static func fontBold(size: Int) -> Font {
-        return Font.custom("ONE Mobile Bold", size: CGFloat(size))
+        return Font.custom("ONEMobileOTFBold", size: CGFloat(size))
     }
 }
