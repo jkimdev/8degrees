@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
         ScrollView {
             VStack {
-                Text("8Degrees").italic().font(Font.custom("EastSeaDokdo-Regular", size: 50))
-                
+                Text("8Degrees").font(Font.custom("EastSeaDokdo-Regular", size: 50))
+                Spacer().frame(height: 0)
                 MainNoticeBannerView()
+                MainCategoryView()
             }
         }
     }
