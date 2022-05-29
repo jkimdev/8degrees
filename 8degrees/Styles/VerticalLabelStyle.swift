@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-
+/// Vertical Label Style
 
 struct VerticalLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
