@@ -12,7 +12,7 @@ struct CarouselView: View {
     
     var body: some View {
         landmark.image
-            .resizable()
+            .centerCropped()
             .frame(width: UIScreen.main.bounds.width, height: 100)
         
     }
