@@ -18,12 +18,16 @@ struct MainCategoryView: View {
     var body: some View {
         
         LazyVGrid(columns: columns, spacing: 10) {
-            Label(title: { Text("Hello") }, icon: { Image(systemName: "person") }).labelStyle(.vertical)
-            Label(title: { Text("Hello") }, icon: { Image(systemName: "person") }).labelStyle(.vertical)
-            Label(title: { Text("Hello") }, icon: { Image(systemName: "person") }).labelStyle(.vertical)
-            Label(title: { Text("Hello") }, icon: { Image(systemName: "person") }).labelStyle(.vertical)
-            Label(title: { Text("Hello") }, icon: { Image(systemName: "person") }).labelStyle(.vertical)
-            Label(title: { Text("Hello") }, icon: { Image(systemName: "person") }).labelStyle(.vertical)
+            Label(title: { Text("globe") }, icon: { Image(systemName: "globe.americas.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("flame") }, icon: { Image(systemName: "flame.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("drop") }, icon: { Image(systemName: "drop.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("bolt") }, icon: { Image(systemName: "bolt.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("allergens") }, icon: { Image(systemName: "allergens").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("leaf") }, icon: { Image(systemName: "leaf.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("heart") }, icon: { Image(systemName: "heart.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("bed") }, icon: { Image(systemName: "bed.double.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("facemask") }, icon: { Image(systemName: "facemask.fill").imageScale(.large) }).labelStyle(.vertical)
+            Label(title: { Text("brain") }, icon: { Image(systemName: "brain").imageScale(.large) }).labelStyle(.vertical)
         }
     }
 }
