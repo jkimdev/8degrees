@@ -15,6 +15,8 @@ struct ContentView: View {
                 Spacer().frame(height: 0)
                 MainNoticeBannerView()
                 MainCategoryView()
+//                PageView(pages: [PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )])
+                
             }
         }
     }

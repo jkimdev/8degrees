@@ -16,6 +16,10 @@
 		1363FCDF283B991700DC2D00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* MainView.swift */; };
 		137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */; };
 		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
+		13DE5E4A284331A00099F3B4 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E49284331A00099F3B4 /* NavigationExtension.swift */; };
+		13DE5E4C28435C760099F3B4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E4B28435C760099F3B4 /* PageViewController.swift */; };
+		13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E4D284361CD0099F3B4 /* PageView.swift */; };
+		13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E4F2843657D0099F3B4 /* SinglePageView.swift */; };
 		13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F1918C2823499F0010B748 /* _degreesApp.swift */; };
 		13F1918F2823499F0010B748 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F1918E2823499F0010B748 /* ContentView.swift */; };
 		13F191912823499F0010B748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F191902823499F0010B748 /* Assets.xcassets */; };
@@ -55,6 +59,10 @@
 		1363FCDE283B991700DC2D00 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelStyle.swift; sourceTree = "<group>"; };
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
+		13DE5E49284331A00099F3B4 /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
+		13DE5E4B28435C760099F3B4 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		13DE5E4D284361CD0099F3B4 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		13DE5E4F2843657D0099F3B4 /* SinglePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePageView.swift; sourceTree = "<group>"; };
 		13F191892823499F0010B748 /* 8degrees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 8degrees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F1918C2823499F0010B748 /* _degreesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _degreesApp.swift; sourceTree = "<group>"; };
 		13F1918E2823499F0010B748 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,12 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13317B31283E766900094156 /* Extensions */ = {
+		13317B31283E766900094156 /* Extensions&Controller */ = {
 			isa = PBXGroup;
 			children = (
 				13317B32283E76D700094156 /* FontExtension.swift */,
+				13DE5E49284331A00099F3B4 /* NavigationExtension.swift */,
+				13DE5E4B28435C760099F3B4 /* PageViewController.swift */,
 			);
-			path = Extensions;
+			path = "Extensions&Controller";
 			sourceTree = "<group>";
 		};
 		134D1E05283D12070000A40C /* Fonts */ = {
@@ -118,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */,
+				13DE5E4F2843657D0099F3B4 /* SinglePageView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -128,6 +139,7 @@
 				13317B3A283F7ABB00094156 /* MainCategoryView.swift */,
 				1363FCDE283B991700DC2D00 /* MainView.swift */,
 				13F1918E2823499F0010B748 /* ContentView.swift */,
+				13DE5E4D284361CD0099F3B4 /* PageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,7 +177,7 @@
 			children = (
 				13DE5E482843310D0099F3B4 /* Styles */,
 				13DE5E47284330DE0099F3B4 /* View */,
-				13317B31283E766900094156 /* Extensions */,
+				13317B31283E766900094156 /* Extensions&Controller */,
 				13B15398283DC0C700A9D0FF /* CardView */,
 				134D1E05283D12070000A40C /* Fonts */,
 				13F1918C2823499F0010B748 /* _degreesApp.swift */,
@@ -339,12 +351,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F1918F2823499F0010B748 /* ContentView.swift in Sources */,
+				13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */,
 				13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */,
+				13DE5E4C28435C760099F3B4 /* PageViewController.swift in Sources */,
 				13317B33283E76D700094156 /* FontExtension.swift in Sources */,
 				13F191BB2826BCC30010B748 /* ModelData.swift in Sources */,
+				13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* MainView.swift in Sources */,
 				13F191B92826BC850010B748 /* Model.swift in Sources */,
+				13DE5E4A284331A00099F3B4 /* NavigationExtension.swift in Sources */,
 				137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */,
 				13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */,
 			);
