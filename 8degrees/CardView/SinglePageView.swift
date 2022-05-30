@@ -13,7 +13,7 @@ struct CarouselView: View {
     var body: some View {
         landmark.image
             .resizable()
-            .aspectRatio(3 / 2, contentMode: .fit)
+            .frame(width: UIScreen.main.bounds.width, height: 100)
         
     }
 }
