@@ -13,7 +13,7 @@ struct CarouselView: View {
     var body: some View {
         landmark.image
             .centerCropped()
-            .frame(width: UIScreen.main.bounds.width, height: 100)
+            .frame(width: UIScreen.main.bounds.width, height: 130)
         
     }
 }

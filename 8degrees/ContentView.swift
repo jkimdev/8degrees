@@ -17,7 +17,7 @@ struct ContentView: View {
                 MainNoticeBannerView()
                 MainCategoryView()
                 PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )
-                    .frame(width: UIScreen.main.bounds.width, height: 100)
+                    .frame(width: UIScreen.main.bounds.width, height: 130)
                  
                     
                 
