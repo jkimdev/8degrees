@@ -134,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */,
-				13DE5E4F2843657D0099F3B4 /* SinglePageView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -142,6 +141,7 @@
 		13DE5E47284330DE0099F3B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13DE5E4F2843657D0099F3B4 /* SinglePageView.swift */,
 				13317B3A283F7ABB00094156 /* MainCategoryView.swift */,
 				1363FCDE283B991700DC2D00 /* MainView.swift */,
 				13DE5E4D284361CD0099F3B4 /* PageView.swift */,

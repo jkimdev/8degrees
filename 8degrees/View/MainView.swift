@@ -12,7 +12,7 @@ struct MainView: View {
     private let imageHeight: CGFloat = 300 // 1
     private let collapsedImageHeight: CGFloat = 75 // 2
     @State var barHidden: Bool = true
-
+    
     // 1
     private func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
         geometry.frame(in: .global).minY
@@ -103,7 +103,7 @@ struct MainView: View {
                         .font(.custom("Avenir Next", size: 28))
                     Text(loremIpsum)
                         .font(.custom("AvenirNext-Regular", size: 17))
-                        
+                    
                 }
                 .padding(.horizontal)
                 .padding(.top, 16.0)

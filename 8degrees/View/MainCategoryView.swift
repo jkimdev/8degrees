@@ -12,8 +12,8 @@ struct MainCategoryView: View {
     var columns: [GridItem] = [GridItem(.fixed(80)),
                                GridItem(.fixed(80)),
                                GridItem(.fixed(80)),
-                            GridItem(.fixed(80))]
-
+                               GridItem(.fixed(80))]
+    
     
     var body: some View {
         
