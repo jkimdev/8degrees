@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct BoxOffices: Decodable {
-    let BoxOffices: [BoxOffice]
+struct BoxOfficeResponse: Decodable {
+    let ok: Bool
+    let result: [BoxOffice]
 }
 
 struct BoxOffice: Decodable {
