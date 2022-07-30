@@ -4,10 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>EastSeaDokdo-Regular.ttf</string>
-		<string>ONE-Mobile-Regular.otf</string>
-		<string>ONE-Mobile-Light.otf</string>
-		<string>ONE-Mobile-Bold.otf</string>
+		<string>DalseoDarling.otf</string>
+		<string>DalseoHealingBold.otf</string>
+		<string>DalseoHealingMedium.otf</string>
 	</array>
 </dict>
 </plist>
