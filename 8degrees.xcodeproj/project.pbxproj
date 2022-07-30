@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132C3C3D2894D9F20085DCD9 /* DalseoHealingBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132C3C3A2894D9F20085DCD9 /* DalseoHealingBold.otf */; };
+		132C3C3E2894D9F20085DCD9 /* DalseoDarling.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132C3C3B2894D9F20085DCD9 /* DalseoDarling.otf */; };
+		132C3C3F2894D9F20085DCD9 /* DalseoHealingMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132C3C3C2894D9F20085DCD9 /* DalseoHealingMedium.otf */; };
+		132C3C412894DD030085DCD9 /* BoxOfficeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C3C402894DD030085DCD9 /* BoxOfficeView.swift */; };
+		132C3C432894E1630085DCD9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C3C422894E1630085DCD9 /* APIClient.swift */; };
 		13317B33283E76D700094156 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B32283E76D700094156 /* FontExtension.swift */; };
-		13317B37283F73A800094156 /* ONE-Mobile-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13317B34283F73A800094156 /* ONE-Mobile-Light.otf */; };
-		13317B38283F73A800094156 /* ONE-Mobile-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13317B35283F73A800094156 /* ONE-Mobile-Bold.otf */; };
-		13317B39283F73A800094156 /* ONE-Mobile-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 13317B36283F73A800094156 /* ONE-Mobile-Regular.otf */; };
 		13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B3A283F7ABB00094156 /* MainCategoryView.swift */; };
-		134D1E08283D12950000A40C /* EastSeaDokdo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */; };
 		1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABB28450F8E00470064 /* ImageExtension.swift */; };
 		1351FABE2845146B00470064 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABD2845146B00470064 /* PageControl.swift */; };
 		1363FCDF283B991700DC2D00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* MainView.swift */; };
@@ -20,7 +21,7 @@
 		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
 		13B6A3A02892B91000E4568F /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */; };
 		13D1CD1328938C61000B282F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 13D1CD1228938C61000B282F /* Alamofire */; };
-		13D1CD16289390B5000B282F /* BoxOfficeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1CD15289390B5000B282F /* BoxOfficeAPI.swift */; };
+		13D1CD16289390B5000B282F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1CD15289390B5000B282F /* APIRouter.swift */; };
 		13DE5E4A284331A00099F3B4 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E49284331A00099F3B4 /* NavigationExtension.swift */; };
 		13DE5E4C28435C760099F3B4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E4B28435C760099F3B4 /* PageViewController.swift */; };
 		13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E4D284361CD0099F3B4 /* PageView.swift */; };
@@ -32,9 +33,6 @@
 		13F1919E2823499F0010B748 /* _degreesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F1919D2823499F0010B748 /* _degreesTests.swift */; };
 		13F191A82823499F0010B748 /* _degreesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191A72823499F0010B748 /* _degreesUITests.swift */; };
 		13F191AA2823499F0010B748 /* _degreesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191A92823499F0010B748 /* _degreesUITestsLaunchTests.swift */; };
-		13F191B92826BC850010B748 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191B82826BC850010B748 /* Model.swift */; };
-		13F191BB2826BCC30010B748 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191BA2826BCC30010B748 /* ModelData.swift */; };
-		13F191BD2826BD200010B748 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 13F191BC2826BD200010B748 /* landmarkData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,19 +53,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		132C3C3A2894D9F20085DCD9 /* DalseoHealingBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingBold.otf; sourceTree = "<group>"; };
+		132C3C3B2894D9F20085DCD9 /* DalseoDarling.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoDarling.otf; sourceTree = "<group>"; };
+		132C3C3C2894D9F20085DCD9 /* DalseoHealingMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingMedium.otf; sourceTree = "<group>"; };
+		132C3C402894DD030085DCD9 /* BoxOfficeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeView.swift; sourceTree = "<group>"; };
+		132C3C422894E1630085DCD9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		13317B32283E76D700094156 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
-		13317B34283F73A800094156 /* ONE-Mobile-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE-Mobile-Light.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE-Mobile-Light.otf"; sourceTree = "<group>"; };
-		13317B35283F73A800094156 /* ONE-Mobile-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE-Mobile-Bold.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE-Mobile-Bold.otf"; sourceTree = "<group>"; };
-		13317B36283F73A800094156 /* ONE-Mobile-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ONE-Mobile-Regular.otf"; path = "../../../../Downloads/ONE Mobile 글꼴 3종/ONE Mobile Regular/ONE-Mobile-Regular.otf"; sourceTree = "<group>"; };
 		13317B3A283F7ABB00094156 /* MainCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryView.swift; sourceTree = "<group>"; };
-		134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EastSeaDokdo-Regular.ttf"; path = "../../../../Downloads/East_Sea_Dokdo/EastSeaDokdo-Regular.ttf"; sourceTree = "<group>"; };
 		1351FABB28450F8E00470064 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		1351FABD2845146B00470064 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		1363FCDE283B991700DC2D00 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelStyle.swift; sourceTree = "<group>"; };
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
 		13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
-		13D1CD15289390B5000B282F /* BoxOfficeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeAPI.swift; sourceTree = "<group>"; };
+		13D1CD15289390B5000B282F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		13DE5E49284331A00099F3B4 /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		13DE5E4B28435C760099F3B4 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		13DE5E4D284361CD0099F3B4 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -82,9 +81,6 @@
 		13F191A32823499F0010B748 /* 8degreesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 8degreesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F191A72823499F0010B748 /* _degreesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _degreesUITests.swift; sourceTree = "<group>"; };
 		13F191A92823499F0010B748 /* _degreesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _degreesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		13F191B82826BC850010B748 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		13F191BA2826BCC30010B748 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		13F191BC2826BD200010B748 /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = landmarkData.json; path = ../../../Downloads/HandlingUserInput/StartingPoint/Landmarks/Resources/landmarkData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +124,9 @@
 		134D1E05283D12070000A40C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				134D1E07283D12950000A40C /* EastSeaDokdo-Regular.ttf */,
-				13317B35283F73A800094156 /* ONE-Mobile-Bold.otf */,
-				13317B34283F73A800094156 /* ONE-Mobile-Light.otf */,
-				13317B36283F73A800094156 /* ONE-Mobile-Regular.otf */,
+				132C3C3B2894D9F20085DCD9 /* DalseoDarling.otf */,
+				132C3C3A2894D9F20085DCD9 /* DalseoHealingBold.otf */,
+				132C3C3C2894D9F20085DCD9 /* DalseoHealingMedium.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -155,7 +150,8 @@
 		13D1CD142893907F000B282F /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				13D1CD15289390B5000B282F /* BoxOfficeAPI.swift */,
+				13D1CD15289390B5000B282F /* APIRouter.swift */,
+				132C3C422894E1630085DCD9 /* APIClient.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -167,6 +163,7 @@
 				13317B3A283F7ABB00094156 /* MainCategoryView.swift */,
 				1363FCDE283B991700DC2D00 /* MainView.swift */,
 				13DE5E4D284361CD0099F3B4 /* PageView.swift */,
+				132C3C402894DD030085DCD9 /* BoxOfficeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,9 +208,6 @@
 				13B15398283DC0C700A9D0FF /* CardView */,
 				134D1E05283D12070000A40C /* Fonts */,
 				13F1918C2823499F0010B748 /* _degreesApp.swift */,
-				13F191B82826BC850010B748 /* Model.swift */,
-				13F191BA2826BCC30010B748 /* ModelData.swift */,
-				13F191BC2826BD200010B748 /* landmarkData.json */,
 				13F191902823499F0010B748 /* Assets.xcassets */,
 				13F191922823499F0010B748 /* Preview Content */,
 			);
@@ -355,13 +349,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13317B37283F73A800094156 /* ONE-Mobile-Light.otf in Resources */,
-				13317B38283F73A800094156 /* ONE-Mobile-Bold.otf in Resources */,
 				13F191942823499F0010B748 /* Preview Assets.xcassets in Resources */,
+				132C3C3F2894D9F20085DCD9 /* DalseoHealingMedium.otf in Resources */,
+				132C3C3E2894D9F20085DCD9 /* DalseoDarling.otf in Resources */,
+				132C3C3D2894D9F20085DCD9 /* DalseoHealingBold.otf in Resources */,
 				13F191912823499F0010B748 /* Assets.xcassets in Resources */,
-				13317B39283F73A800094156 /* ONE-Mobile-Regular.otf in Resources */,
-				134D1E08283D12950000A40C /* EastSeaDokdo-Regular.ttf in Resources */,
-				13F191BD2826BD200010B748 /* landmarkData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F1918F2823499F0010B748 /* ContentView.swift in Sources */,
+				132C3C432894E1630085DCD9 /* APIClient.swift in Sources */,
 				13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */,
 				13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */,
 				1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */,
@@ -394,15 +387,14 @@
 				13DE5E4C28435C760099F3B4 /* PageViewController.swift in Sources */,
 				1351FABE2845146B00470064 /* PageControl.swift in Sources */,
 				13317B33283E76D700094156 /* FontExtension.swift in Sources */,
-				13F191BB2826BCC30010B748 /* ModelData.swift in Sources */,
 				13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* MainView.swift in Sources */,
-				13D1CD16289390B5000B282F /* BoxOfficeAPI.swift in Sources */,
-				13F191B92826BC850010B748 /* Model.swift in Sources */,
+				13D1CD16289390B5000B282F /* APIRouter.swift in Sources */,
 				13DE5E4A284331A00099F3B4 /* NavigationExtension.swift in Sources */,
 				137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */,
 				13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */,
+				132C3C412894DD030085DCD9 /* BoxOfficeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
