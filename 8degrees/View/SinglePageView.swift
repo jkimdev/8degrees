@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct CarouselView: View {
-    var landmark: Landmark
-    
-    var body: some View {
-        landmark.image
-            .centerCropped()
-            .frame(width: UIScreen.main.bounds.width, height: 130)
-        
-    }
-}
-
-struct CarouselView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarouselView(landmark: ModelData().landmarks[0])
-    }
-}
+//struct CarouselView: View {
+//    var landmark: Landmark
+//    
+//    var body: some View {
+//        landmark.image
+//            .centerCropped()
+//            .frame(width: UIScreen.main.bounds.width, height: 130)
+//        
+//    }
+//}
+//
+//struct CarouselView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CarouselView(landmark: ModelData().landmarks[0])
+//    }
+//}
