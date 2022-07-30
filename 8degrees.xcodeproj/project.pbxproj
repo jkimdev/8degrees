@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		132C3C3D2894D9F20085DCD9 /* DalseoHealingBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132C3C3A2894D9F20085DCD9 /* DalseoHealingBold.otf */; };
-		132C3C3E2894D9F20085DCD9 /* DalseoDarling.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132C3C3B2894D9F20085DCD9 /* DalseoDarling.otf */; };
-		132C3C3F2894D9F20085DCD9 /* DalseoHealingMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132C3C3C2894D9F20085DCD9 /* DalseoHealingMedium.otf */; };
 		132C3C412894DD030085DCD9 /* BoxOfficeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C3C402894DD030085DCD9 /* BoxOfficeView.swift */; };
 		132C3C432894E1630085DCD9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C3C422894E1630085DCD9 /* APIClient.swift */; };
+		1331362A28955E3B00032413 /* DalseoDarling.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1331362728955E3B00032413 /* DalseoDarling.otf */; };
+		1331362B28955E3B00032413 /* DalseoHealingBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1331362828955E3B00032413 /* DalseoHealingBold.otf */; };
+		1331362C28955E3B00032413 /* DalseoHealingMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1331362928955E3B00032413 /* DalseoHealingMedium.otf */; };
 		13317B33283E76D700094156 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B32283E76D700094156 /* FontExtension.swift */; };
 		13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B3A283F7ABB00094156 /* MainCategoryView.swift */; };
 		1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABB28450F8E00470064 /* ImageExtension.swift */; };
@@ -53,11 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		132C3C3A2894D9F20085DCD9 /* DalseoHealingBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingBold.otf; sourceTree = "<group>"; };
-		132C3C3B2894D9F20085DCD9 /* DalseoDarling.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoDarling.otf; sourceTree = "<group>"; };
-		132C3C3C2894D9F20085DCD9 /* DalseoHealingMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingMedium.otf; sourceTree = "<group>"; };
 		132C3C402894DD030085DCD9 /* BoxOfficeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeView.swift; sourceTree = "<group>"; };
 		132C3C422894E1630085DCD9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		1331362728955E3B00032413 /* DalseoDarling.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoDarling.otf; sourceTree = "<group>"; };
+		1331362828955E3B00032413 /* DalseoHealingBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingBold.otf; sourceTree = "<group>"; };
+		1331362928955E3B00032413 /* DalseoHealingMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingMedium.otf; sourceTree = "<group>"; };
 		13317B32283E76D700094156 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		13317B3A283F7ABB00094156 /* MainCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryView.swift; sourceTree = "<group>"; };
 		1351FABB28450F8E00470064 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 		134D1E05283D12070000A40C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				132C3C3B2894D9F20085DCD9 /* DalseoDarling.otf */,
-				132C3C3A2894D9F20085DCD9 /* DalseoHealingBold.otf */,
-				132C3C3C2894D9F20085DCD9 /* DalseoHealingMedium.otf */,
+				1331362728955E3B00032413 /* DalseoDarling.otf */,
+				1331362828955E3B00032413 /* DalseoHealingBold.otf */,
+				1331362928955E3B00032413 /* DalseoHealingMedium.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -350,10 +350,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F191942823499F0010B748 /* Preview Assets.xcassets in Resources */,
-				132C3C3F2894D9F20085DCD9 /* DalseoHealingMedium.otf in Resources */,
-				132C3C3E2894D9F20085DCD9 /* DalseoDarling.otf in Resources */,
-				132C3C3D2894D9F20085DCD9 /* DalseoHealingBold.otf in Resources */,
+				1331362B28955E3B00032413 /* DalseoHealingBold.otf in Resources */,
 				13F191912823499F0010B748 /* Assets.xcassets in Resources */,
+				1331362A28955E3B00032413 /* DalseoDarling.otf in Resources */,
+				1331362C28955E3B00032413 /* DalseoHealingMedium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
