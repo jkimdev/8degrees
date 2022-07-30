@@ -1,5 +1,5 @@
 //
-//  BoxOfficeAPI.swift
+//  APIRouter.swift
 //  8degrees
 //
 //  Created by 김재민 on 2022/07/29.
@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-enum BoxOfficeAPI {
+enum APIRouter {
     case getBoxOffice
 }
 
-extension BoxOfficeAPI: URLRequestConvertible {
+extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
         return URL(string: "http://127.0.0.1:8080")!
