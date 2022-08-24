@@ -8,7 +8,7 @@
 import Foundation
 
 struct BoxOfficeResponse: Decodable {
-    let ok: Bool
+    let code: Int
     let result: [BoxOffice]
 }
 

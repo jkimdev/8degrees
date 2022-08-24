@@ -9,14 +9,26 @@ import SwiftUI
 import Alamofire
 
 struct BoxOfficeView: View {
-    @ObservedObject var viewModel: viewModel
+    @ObservedObject var viewModel = BoxOfficeView.viewModel()
     var body: some View {
         
         VStack {
-            Text("\(self.viewModel.boxOffices[0].title)")
+            ScrollView(.horizontal, showsIndicators: false) {
+                VStack {
+                    HStack {
+                        ForEach(self.viewModel.boxOffices, id: \.performanceId) { post in
+                            BoxOfficeCardView(boxOffice: post)
+                        }
+                    }.padding()
+                }
+            }
         }
         .task{
-           await self.viewModel.getBoxOffice()
+            await self.viewModel.getBoxOffice()
+        }
+        .overlay{
+            self.viewModel.isLoading ? ProgressView(value: 0)
+                .progressViewStyle(CircularProgressViewStyle(tint: .red)) : nil
         }
     }
 }
@@ -24,11 +36,15 @@ struct BoxOfficeView: View {
 extension BoxOfficeView {
     class viewModel: ObservableObject {
         @Published private(set) var boxOffices: [BoxOffice] = []
+        @Published private(set) var isLoading: Bool = false
         
         func getBoxOffice() async {
+            self.isLoading = true
             APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffice) { [weak self] response in
                 
                 self?.boxOffices = response.result
+                
+                self?.isLoading = false
                 
             } failure: { error in
                 print(error.localizedDescription)
