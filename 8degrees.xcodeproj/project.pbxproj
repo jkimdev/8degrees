@@ -22,6 +22,7 @@
 		13B6A3A02892B91000E4568F /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */; };
 		13C2B57128B625A2003DC171 /* BoxOfficeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */; };
 		13C843ED28BCDD3A004FFFAF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 13C843EC28BCDD3A004FFFAF /* Kingfisher */; };
+		13C843EF28BCDDE0004FFFAF /* SingBoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C843EE28BCDDE0004FFFAF /* SingBoxOfficeModel.swift */; };
 		13D1CD1328938C61000B282F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 13D1CD1228938C61000B282F /* Alamofire */; };
 		13D1CD16289390B5000B282F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D1CD15289390B5000B282F /* APIRouter.swift */; };
 		13DE5E4A284331A00099F3B4 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE5E49284331A00099F3B4 /* NavigationExtension.swift */; };
@@ -70,6 +71,7 @@
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
 		13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
 		13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeCardView.swift; sourceTree = "<group>"; };
+		13C843EE28BCDDE0004FFFAF /* SingBoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingBoxOfficeModel.swift; sourceTree = "<group>"; };
 		13D1CD15289390B5000B282F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		13DE5E49284331A00099F3B4 /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		13DE5E4B28435C760099F3B4 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */,
+				13C843EE28BCDDE0004FFFAF /* SingBoxOfficeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */,
 				13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */,
 				132C3C412894DD030085DCD9 /* BoxOfficeView.swift in Sources */,
+				13C843EF28BCDDE0004FFFAF /* SingBoxOfficeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
