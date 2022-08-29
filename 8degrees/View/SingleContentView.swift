@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
-struct MainView: View {
+struct SingleContentView: View {
     
+    @ObservedObject var viewModel = SingleContentView.viewModel()
     private let imageHeight: CGFloat = 300 // 1
     private let collapsedImageHeight: CGFloat = 75 // 2
     @State var barHidden: Bool = true
+    var performanceId: String
     
     // 1
     private func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
@@ -63,16 +66,14 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                
-                GeometryReader { geo in
-                    Image("rollingstone")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geo.size.width, height: self.getHeightForHeaderImage(geo))
-                        .blur(radius: getBlurRadiusForImage(geo))
-                        .clipped()
-                        .offset(y: getOffsetForHeaderImage(geo))
-                }.frame(height: 300)
+                KFImage(URL(string: self.viewModel.boxOffice.first?.poster ?? ""))
+                    .centerCropped()
+                    .frame(height: 300)
+                //                        .scaledToFill()
+                //                        .frame(width: geo.size.width, height: self.getHeightForHeaderImage(geo))
+                //                        .blur(radius: getBlurRadiusForImage(geo))
+                //                        .clipped()
+                //                        .offset(y: getOffsetForHeaderImage(geo))
                 
                 VStack(alignment: .leading, spacing: 10) {
                     
@@ -109,23 +110,38 @@ struct MainView: View {
                 .padding(.top, 16.0)
             }
             .ignoresSafeArea(edges: .top)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "arrow.backward").foregroundColor(.white)
-                }
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Spacer()
-                    Image(systemName: "hands.clap")
-                    Spacer()
-                }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
+        .task {
+            await self.viewModel.getBoxOffice(id: performanceId)
+        }
+    }
+}
+
+extension SingleContentView {
+    class viewModel: ObservableObject {
+        @Published private(set) var boxOffice: [SingBoxOffice] = []
+        @Published private(set) var isLoading: Bool = false
+        
+        func getBoxOffice(id: String) async {
+            self.isLoading = true
+            APIClient.shared.request(SingBoxOfficeResponse.self, router: APIRouter.getSingleBoxOffice(id: id)) { [weak self] response in
+                
+                self?.boxOffice = response.result
+                
+                self?.isLoading = false
+                
+            } failure: { error in
+                print(error.localizedDescription)
             }
         }
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct SingleContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        SingleContentView(performanceId: "PF189439")
     }
 }
 

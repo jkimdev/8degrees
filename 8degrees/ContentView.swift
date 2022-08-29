@@ -10,16 +10,21 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        ScrollView {
-            VStack {
-                Text("8Degrees").font(Font.custom("EastSeaDokdo-Regular", size: 50))
-                Spacer().frame(height: 0)
-                MainNoticeBannerView()
-                MainCategoryView()
-                BoxOfficeView()
-//                PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )
-//                    .frame(width: UIScreen.main.bounds.width, height: 130)
+        NavigationView {
+            ScrollView {
+                VStack {
+                    Text("8Degrees").font(Font.custom("EastSeaDokdo-Regular", size: 50))
+                    Spacer().frame(height: 0)
+                    MainNoticeBannerView()
+                    MainCategoryView()
+                    BoxOfficeView()
+                    //                PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )
+                    //                    .frame(width: UIScreen.main.bounds.width, height: 130)
+                }
             }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            
         }
     }
 }

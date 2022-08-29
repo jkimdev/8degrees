@@ -17,7 +17,9 @@ struct BoxOfficeView: View {
                 VStack {
                     HStack {
                         ForEach(self.viewModel.boxOffices, id: \.performanceId) { post in
+                            NavigationLink(destination: SingleContentView(performanceId: post.performanceId)) {
                             BoxOfficeCardView(boxOffice: post)
+                            }
                         }
                     }.padding()
                 }
