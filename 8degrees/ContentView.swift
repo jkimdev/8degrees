@@ -25,7 +25,7 @@ struct ContentView: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             
-        }
+        }.background(Color.indigo)
     }
 }
 

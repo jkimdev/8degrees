@@ -10,7 +10,7 @@ import Kingfisher
 
 struct SingleContentView: View {
     
-    @ObservedObject var viewModel = SingleContentView.viewModel()
+    @StateObject var viewModel = SingleContentView.viewModel()
     private let imageHeight: CGFloat = 300 // 1
     private let collapsedImageHeight: CGFloat = 75 // 2
     @State var barHidden: Bool = true
