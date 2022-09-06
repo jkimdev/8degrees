@@ -17,7 +17,7 @@ enum APIRouter {
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://172.30.1.68:8080")!
+        return URL(string: "http://172.29.121.176:8080")!
     }
     
     var method: HTTPMethod {
@@ -36,7 +36,7 @@ extension APIRouter: URLRequestConvertible {
         case .getBoxOffice:
             return "/top10BoxOffice"
         case .getSingleBoxOffice(let id):
-            return "/performance/\(id)"
+            return "/boxOffice/\(id)"
         case .getGenres:
             return "/genres"
         }

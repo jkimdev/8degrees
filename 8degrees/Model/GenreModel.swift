@@ -13,6 +13,8 @@ struct GenreResponse: Decodable {
 }
 
 struct Genre: Decodable {
+    let id: Int
     let code: String
     let value: String
+    let image: String
 }

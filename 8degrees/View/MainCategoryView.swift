@@ -20,16 +20,20 @@ struct MainCategoryView: View {
     var body: some View {
         
         LazyVGrid(columns: columns, spacing: 10) {
-            Label(title: { Text("globe") }, icon: { Image(systemName: "globe.americas.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("flame") }, icon: { Image(systemName: "flame.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("drop") }, icon: { Image(systemName: "drop.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("bolt") }, icon: { Image(systemName: "bolt.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("allergens") }, icon: { Image(systemName: "allergens").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("leaf") }, icon: { Image(systemName: "leaf.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("heart") }, icon: { Image(systemName: "heart.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("bed") }, icon: { Image(systemName: "bed.double.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("facemask") }, icon: { Image(systemName: "facemask.fill").imageScale(.large) }).labelStyle(.vertical)
-            Label(title: { Text("brain") }, icon: { Image(systemName: "brain").imageScale(.large) }).labelStyle(.vertical)
+            ForEach(self.viewModel.genres, id: \.id) { genre in
+                Label(title: { Text(genre.value) }, icon: { Image(systemName: genre.image).imageScale(.large) }).labelStyle(.vertical)
+                
+            }
+//            Label(title: { Text("globe") }, icon: { Image(systemName: "globe.americas.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("flame") }, icon: { Image(systemName: "flame.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("drop") }, icon: { Image(systemName: "drop.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("bolt") }, icon: { Image(systemName: "bolt.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("allergens") }, icon: { Image(systemName: "allergens").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("leaf") }, icon: { Image(systemName: "leaf.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("heart") }, icon: { Image(systemName: "heart.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("bed") }, icon: { Image(systemName: "bed.double.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("facemask") }, icon: { Image(systemName: "facemask.fill").imageScale(.large) }).labelStyle(.vertical)
+//            Label(title: { Text("brain") }, icon: { Image(systemName: "brain").imageScale(.large) }).labelStyle(.vertical)
         }
         .task {
             await self.viewModel.getGenres()
@@ -42,7 +46,7 @@ extension MainCategoryView {
         @Published private(set) var genres: [Genre] = []
         @Published private(set) var isLoading: Bool = false
         
-        func getGenres() async{
+        func getGenres() async {
             self.isLoading = true
             APIClient.shared.request(GenreResponse.self, router: APIRouter.getGenres) { [weak self] response in
                 self?.genres = response.result
