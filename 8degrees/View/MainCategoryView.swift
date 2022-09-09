@@ -21,8 +21,11 @@ struct MainCategoryView: View {
         
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(self.viewModel.genres, id: \.id) { genre in
-                Label(title: { Text(genre.value) }, icon: { Image(systemName: genre.image).imageScale(.large) }).labelStyle(.vertical)
-                
+                NavigationLink(destination: {
+                    ContentListView(genre: genre.code)
+                }, label: {
+                    Label(title: { Text(genre.value) }, icon: { Image(systemName: genre.image).imageScale(.large) }).labelStyle(.vertical)
+                })
             }
 //            Label(title: { Text("globe") }, icon: { Image(systemName: "globe.americas.fill").imageScale(.large) }).labelStyle(.vertical)
 //            Label(title: { Text("flame") }, icon: { Image(systemName: "flame.fill").imageScale(.large) }).labelStyle(.vertical)

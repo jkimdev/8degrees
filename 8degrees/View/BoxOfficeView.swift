@@ -42,7 +42,7 @@ extension BoxOfficeView {
         
         func getBoxOffice() async {
             self.isLoading = true
-            APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffice) { [weak self] response in
+            APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffices) { [weak self] response in
                 
                 self?.boxOffices = response.result
                 
