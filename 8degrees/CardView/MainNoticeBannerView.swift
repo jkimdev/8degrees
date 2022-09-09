@@ -10,17 +10,17 @@ import SwiftUI
 struct MainNoticeBannerView: View {
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("힘내요! 경북/강원")
-                    .font(.fontRegular(size: 10))
+                    .font(.fontRegular(size: 8))
                 Text("산불피해지역 선착순 3만원 할인")
-                    .font(.fontBold(size: 15))
-            }.padding(10)
+                    .font(.fontBold(size: 16))
+            }.padding()
             
             Spacer()
         }
-        .background(Color(.sRGB,red: 230/255, green: 252/255, blue: 235/255)).cornerRadius(5)
-        .padding(.horizontal)
+        .background(Color(.sRGB,red: 230/255, green: 252/255, blue: 235/255)).cornerRadius(8)
+        .padding([.horizontal, .bottom])
     }
 }
 

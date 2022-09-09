@@ -13,8 +13,7 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Text("8Degrees").font(Font.custom("EastSeaDokdo-Regular", size: 50))
-                    Spacer().frame(height: 0)
+                    Text("8Degrees").font(.fontBold(size: 32))
                     MainNoticeBannerView()
                     MainCategoryView()
                     BoxOfficeView()

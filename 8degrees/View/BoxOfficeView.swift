@@ -12,7 +12,8 @@ struct BoxOfficeView: View {
     @ObservedObject var viewModel = BoxOfficeView.viewModel()
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
+            Text("금주의 TOP 10 🎬").font(.fontBold(size: 18)).padding(.leading)
             ScrollView(.horizontal, showsIndicators: false) {
                 VStack {
                     HStack {
@@ -21,7 +22,7 @@ struct BoxOfficeView: View {
                             BoxOfficeCardView(boxOffice: post)
                             }
                         }
-                    }.padding()
+                    }.padding(.horizontal)
                 }
             }
         }

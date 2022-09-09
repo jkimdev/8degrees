@@ -19,7 +19,7 @@ struct MainCategoryView: View {
     
     var body: some View {
         
-        LazyVGrid(columns: columns, spacing: 10) {
+        LazyVGrid(columns: columns, spacing: 8) {
             ForEach(self.viewModel.genres, id: \.id) { genre in
                 NavigationLink(destination: {
                     ContentListView(genre: genre.code)
@@ -38,6 +38,7 @@ struct MainCategoryView: View {
 //            Label(title: { Text("facemask") }, icon: { Image(systemName: "facemask.fill").imageScale(.large) }).labelStyle(.vertical)
 //            Label(title: { Text("brain") }, icon: { Image(systemName: "brain").imageScale(.large) }).labelStyle(.vertical)
         }
+        .padding(.bottom)
         .task {
             await self.viewModel.getGenres()
         }
