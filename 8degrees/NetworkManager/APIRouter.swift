@@ -11,21 +11,21 @@ import Alamofire
 enum APIRouter {
     case getPerformancesByGenre(genre: String, startIdx: Int, endIdx: Int)
     case getBoxOffices
-    case getSingleBoxOffice(id: String)
+    case getPerformanceById(id: String)
     case getGenres
 }
 
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://172.30.1.35:8080")!
+        return URL(string: "http://172.30.1.34:8080")!
     }
     
     var method: HTTPMethod {
         switch self {
         case .getBoxOffices:
             return .get
-        case .getSingleBoxOffice:
+        case .getPerformanceById:
             return .get
         case .getGenres:
             return .get
@@ -38,8 +38,8 @@ extension APIRouter: URLRequestConvertible {
         switch self {
         case .getBoxOffices:
             return "/top10BoxOffice"
-        case .getSingleBoxOffice(let id):
-            return "/boxOffice/\(id)"
+        case .getPerformanceById(let id):
+            return "/performance/\(id)"
         case .getGenres:
             return "/genres"
         case .getPerformancesByGenre:
@@ -56,7 +56,7 @@ extension APIRouter: URLRequestConvertible {
         switch self {
         case .getBoxOffices:
             return nil
-        case .getSingleBoxOffice:
+        case .getPerformanceById:
             return nil
         case .getGenres:
             return nil

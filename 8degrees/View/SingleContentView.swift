@@ -66,7 +66,7 @@ struct SingleContentView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                KFImage(URL(string: self.viewModel.boxOffice.first?.poster ?? ""))
+                KFImage(URL(string: self.viewModel.performances.first?.poster ?? ""))
                     .centerCropped()
                     .frame(height: 300)
                 //                        .scaledToFill()
@@ -114,21 +114,21 @@ struct SingleContentView: View {
             .navigationBarHidden(true)
         }
         .task {
-            await self.viewModel.getBoxOffice(id: performanceId)
+            await self.viewModel.getPerformance(id: performanceId)
         }
     }
 }
 
 extension SingleContentView {
     class viewModel: ObservableObject {
-        @Published private(set) var boxOffice: [SingBoxOffice] = []
+        @Published private(set) var performances: [Performance] = []
         @Published private(set) var isLoading: Bool = false
         
-        func getBoxOffice(id: String) async {
+        func getPerformance(id: String) async {
             self.isLoading = true
-            APIClient.shared.request(SingBoxOfficeResponse.self, router: APIRouter.getSingleBoxOffice(id: id)) { [weak self] response in
+            APIClient.shared.request(PerformanceResponse.self, router: APIRouter.getPerformanceById(id: id)) { [weak self] response in
                 
-                self?.boxOffice = response.result
+                self?.performances = response.result
                 
                 self?.isLoading = false
                 
