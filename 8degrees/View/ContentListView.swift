@@ -14,12 +14,17 @@ struct ContentListView: View {
     var genre: String
     var body: some View {
             List(self.viewModel.performances, id: \.performanceId) { performance in
-                HStack(alignment: .top) {
-                    KFImage(URL(string: performance.poster))
-                        .centerCropped()
-                        .frame(width: 75, height: 100)
-                        .cornerRadius(8)
-                    Text(performance.title)
+                NavigationLink {
+                    SingleContentView(performanceId: performance.performanceId)
+                } label: {
+                    HStack(alignment: .top) {
+                        KFImage(URL(string: performance.poster))
+                            .centerCropped()
+                            .frame(width: 75, height: 100)
+                            .cornerRadius(8)
+                        Text(performance.title)
+                    }
+
                 }
             }.task {
                 await self.viewModel.getPerformanceList(genre: self.genre)
