@@ -51,10 +51,10 @@ extension MainCategoryView {
         @Published private(set) var isLoading: Bool = false
         
         func getGenres() async {
-            self.isLoading = true
+//            self.isLoading = true
             APIClient.shared.request(GenreResponse.self, router: APIRouter.getGenres) { [weak self] response in
                 self?.genres = response.result
-                self?.isLoading = false
+//                self?.isLoading = false
             } failure: { error in
                 print(error.localizedDescription)
             }

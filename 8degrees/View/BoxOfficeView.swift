@@ -42,12 +42,12 @@ extension BoxOfficeView {
         @Published private(set) var isLoading: Bool = false
         
         func getBoxOffice() async {
-            self.isLoading = true
+//            self.isLoading = true
             APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffices) { [weak self] response in
                 
                 self?.boxOffices = response.result
                 
-                self?.isLoading = false
+//                self?.isLoading = false
                 
             } failure: { error in
                 print(error.localizedDescription)

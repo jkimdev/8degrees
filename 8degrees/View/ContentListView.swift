@@ -24,7 +24,6 @@ struct ContentListView: View {
                             .cornerRadius(8)
                         Text(performance.title)
                     }
-
                 }
             }.task {
                 await self.viewModel.getPerformanceList(genre: self.genre)
@@ -38,11 +37,11 @@ extension ContentListView {
         @Published var isLoading: Bool = false
         
         func getPerformanceList(genre: String) async {
-            self.isLoading = true
+//            self.isLoading = true
             APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, startIdx: 1, endIdx: 30)) { [weak self] response in
                 
                 self?.performances = response.result
-                self?.isLoading = false
+//                self?.isLoading = false
 
             } failure: { error in
                 print(error.localizedDescription)

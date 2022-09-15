@@ -125,12 +125,12 @@ extension SingleContentView {
         @Published private(set) var isLoading: Bool = false
         
         func getPerformance(id: String) async {
-            self.isLoading = true
+//            self.isLoading = true
             APIClient.shared.request(PerformanceResponse.self, router: APIRouter.getPerformanceById(id: id)) { [weak self] response in
                 
                 self?.performances = response.result
                 
-                self?.isLoading = false
+//                self?.isLoading = false
                 
             } failure: { error in
                 print(error.localizedDescription)
