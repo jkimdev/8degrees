@@ -17,7 +17,7 @@ struct UpComingView: View {
                     HStack {
                         ForEach(self.viewModel.performances, id: \.performanceId) { post in
                             NavigationLink(destination: SingleContentView(performanceId: post.performanceId)) {
-//                                UpcomingCardView(performance: post)
+                                //                                UpcomingCardView(performance: post)
                             }
                         }
                     }.padding(.horizontal)
@@ -25,12 +25,12 @@ struct UpComingView: View {
             }
         }
         .task{
-            await self.viewModel.getUpComing()
+            await self.viewModel.getUpComing(date: "2022-09-01")
         }
-//        .overlay{
-//            self.viewModel.isLoading ? ProgressView(value: 0)
-//                .progressViewStyle(CircularProgressViewStyle(tint: .red)) : nil
-//        }
+        //        .overlay{
+        //            self.viewModel.isLoading ? ProgressView(value: 0)
+        //                .progressViewStyle(CircularProgressViewStyle(tint: .red)) : nil
+        //        }
     }
 }
 
@@ -44,8 +44,14 @@ extension UpComingView {
     class viewModel: ObservableObject {
         @Published var performances: [Performance] = []
         
-        func getUpComing() async {
-            
+        func getUpComing(date: String) async {
+            APIClient.shared.request(PerformanceResponse.self, router: .findUpComingPerformance(date: date)) { [weak self] response in
+                self?.performances = response.result
+                print(self?.performances)
+                
+            } failure: { error in
+                print(error.localizedDescription)
+            }
         }
     }
 }
