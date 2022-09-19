@@ -12,14 +12,14 @@ enum APIRouter {
     case getPerformancesByGenre(genre: String, startIdx: Int, endIdx: Int)
     case getBoxOffices
     case getPerformanceById(id: String)
-    case findUpComingPerformance(date: String)
+    case findUpComingPerformance(date: String, startIdx: String, endIdx: String)
     case getGenres
 }
 
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://172.30.1.9:8080")!
+        return URL(string: "http://192.168.35.38:8080")!
     }
     
     var method: HTTPMethod {
@@ -67,8 +67,8 @@ extension APIRouter: URLRequestConvertible {
             return nil
         case .getPerformancesByGenre(genre: let genre, startIdx: let startIdx, endIdx: let endIdx):
             return ["genre": genre, "startIdx": startIdx, "endIdx": endIdx]
-        case .findUpComingPerformance(date: let date):
-            return ["date": date]
+        case .findUpComingPerformance(date: let date, startIdx: let startIdx, endIdx: let endIdx):
+            return ["date": date, "startIdx": startIdx, "endIdx": endIdx]
         }
     }
     
