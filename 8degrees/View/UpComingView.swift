@@ -17,7 +17,7 @@ struct UpComingView: View {
                     HStack {
                         ForEach(self.viewModel.performances, id: \.performanceId) { post in
                             NavigationLink(destination: SingleContentView(performanceId: post.performanceId)) {
-                                //                                UpcomingCardView(performance: post)
+                                                                UpComingCardView(performance: post)
                             }
                         }
                     }.padding(.horizontal)
@@ -45,7 +45,7 @@ extension UpComingView {
         @Published var performances: [Performance] = []
         
         func getUpComing(date: String) async {
-            APIClient.shared.request(PerformanceResponse.self, router: .findUpComingPerformance(date: date)) { [weak self] response in
+            APIClient.shared.request(PerformanceResponse.self, router: .findUpComingPerformance(date: date, startIdx: "1", endIdx: "10")) { [weak self] response in
                 self?.performances = response.result
                 print(self?.performances)
                 

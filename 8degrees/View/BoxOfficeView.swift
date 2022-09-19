@@ -22,7 +22,7 @@ struct BoxOfficeView: View {
                             BoxOfficeCardView(boxOffice: post)
                             }
                         }
-                    }.padding(.horizontal)
+                    }.padding([.horizontal, .bottom])
                 }
             }
         }

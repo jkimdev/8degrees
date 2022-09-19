@@ -17,6 +17,7 @@ struct ContentView: View {
                     MainNoticeBannerView()
                     MainCategoryView()
                     BoxOfficeView()
+                    UpComingView()
                     //                PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )
                     //                    .frame(width: UIScreen.main.bounds.width, height: 130)
                 }

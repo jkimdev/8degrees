@@ -22,6 +22,7 @@
 		1351FABE2845146B00470064 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABD2845146B00470064 /* PageControl.swift */; };
 		1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* SingleContentView.swift */; };
 		137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */; };
+		139BF6FB28D85E2F00DCF839 /* UpComingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */; };
 		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
 		13B6A3A02892B91000E4568F /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */; };
 		13C2B57128B625A2003DC171 /* BoxOfficeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */; };
@@ -76,6 +77,7 @@
 		135443C528B4FC9D00130DC7 /* 8degreesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 8degreesDebug.entitlements; sourceTree = "<group>"; };
 		1363FCDE283B991700DC2D00 /* SingleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContentView.swift; sourceTree = "<group>"; };
 		137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelStyle.swift; sourceTree = "<group>"; };
+		139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCardView.swift; sourceTree = "<group>"; };
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
 		13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
 		13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeCardView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */,
 				13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */,
+				139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				132933FC28C83E8800EF09A4 /* ContentListView.swift in Sources */,
 				13C2B57128B625A2003DC171 /* BoxOfficeCardView.swift in Sources */,
 				1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */,
+				139BF6FB28D85E2F00DCF839 /* UpComingCardView.swift in Sources */,
 				13B6A3A02892B91000E4568F /* BoxOfficeModel.swift in Sources */,
 				13DE5E4C28435C760099F3B4 /* PageViewController.swift in Sources */,
 				1351FABE2845146B00470064 /* PageControl.swift in Sources */,
