@@ -64,7 +64,6 @@ struct SingleContentView: View {
     }
     
     var body: some View {
-        NavigationView {
             ScrollView(showsIndicators: false) {
                 KFImage(URL(string: self.viewModel.performances.first?.poster ?? ""))
                     .centerCropped()
@@ -108,11 +107,7 @@ struct SingleContentView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 16.0)
-            }
-            .ignoresSafeArea(edges: .top)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-        }
+            }.ignoresSafeArea(edges: .top)
         .task {
             await self.viewModel.getPerformance(id: performanceId)
         }

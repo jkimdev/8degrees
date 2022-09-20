@@ -25,7 +25,9 @@ struct ContentListView: View {
                         Text(performance.title)
                     }
                 }
-            }.task {
+            }
+            .navigationBarTitle("")
+            .task {
                 await self.viewModel.getPerformanceList(genre: self.genre)
             }
     }
