@@ -21,6 +21,8 @@
 		1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABB28450F8E00470064 /* ImageExtension.swift */; };
 		1351FABE2845146B00470064 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABD2845146B00470064 /* PageControl.swift */; };
 		1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* SingleContentView.swift */; };
+		137999FA28D9CC48000B3209 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137999F928D9CC48000B3209 /* LocationManager.swift */; };
+		137999FC28D9E777000B3209 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137999FB28D9E777000B3209 /* MapView.swift */; };
 		137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */; };
 		139BF6FB28D85E2F00DCF839 /* UpComingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */; };
 		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
@@ -76,6 +78,8 @@
 		1351FABD2845146B00470064 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		135443C528B4FC9D00130DC7 /* 8degreesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 8degreesDebug.entitlements; sourceTree = "<group>"; };
 		1363FCDE283B991700DC2D00 /* SingleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContentView.swift; sourceTree = "<group>"; };
+		137999F928D9CC48000B3209 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		137999FB28D9E777000B3209 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		137E7F4A2840A5D60095A7FE /* VerticalLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelStyle.swift; sourceTree = "<group>"; };
 		139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCardView.swift; sourceTree = "<group>"; };
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		137999F828D9CC29000B3209 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				137999F928D9CC48000B3209 /* LocationManager.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		13B15398283DC0C700A9D0FF /* CardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +200,7 @@
 				13DE5E4D284361CD0099F3B4 /* PageView.swift */,
 				132C3C402894DD030085DCD9 /* BoxOfficeView.swift */,
 				1350C26528D47B1E00A82C71 /* UpComingView.swift */,
+				137999FB28D9E777000B3209 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +236,7 @@
 		13F1918B2823499F0010B748 /* 8degrees */ = {
 			isa = PBXGroup;
 			children = (
+				137999F828D9CC29000B3209 /* LocationManager */,
 				135443C528B4FC9D00130DC7 /* 8degreesDebug.entitlements */,
 				13D1CD142893907F000B282F /* NetworkManager */,
 				13B6A39E2892B8F400E4568F /* Model */,
@@ -407,6 +421,7 @@
 			files = (
 				13F1918F2823499F0010B748 /* ContentView.swift in Sources */,
 				132933FA28C5F87D00EF09A4 /* GenreModel.swift in Sources */,
+				137999FA28D9CC48000B3209 /* LocationManager.swift in Sources */,
 				132C3C432894E1630085DCD9 /* APIClient.swift in Sources */,
 				13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */,
 				13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */,
@@ -421,6 +436,7 @@
 				13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */,
+				137999FC28D9E777000B3209 /* MapView.swift in Sources */,
 				13D1CD16289390B5000B282F /* APIRouter.swift in Sources */,
 				13DE5E4A284331A00099F3B4 /* NavigationExtension.swift in Sources */,
 				137E7F4B2840A5D60095A7FE /* VerticalLabelStyle.swift in Sources */,

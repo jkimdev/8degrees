@@ -10,10 +10,22 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
+        
         NavigationView {
-            ScrollView {
-                VStack {
-                    Text("8Degrees").font(.fontBold(size: 32))
+            VStack {
+                HStack(alignment: .firstTextBaseline) {
+                    Text("8Degrees").font(.fontBold(size: 32)).padding(.leading)
+                    Spacer()
+                    NavigationLink(destination: {
+                        MapView()
+                    }, label: {
+                        HStack {
+                            Text("내 주변").font(.fontRegular(size: 16))
+                            Image(systemName: "safari.fill").imageScale(.large).padding(.trailing)
+                        }
+                    })
+                }
+                ScrollView {
                     MainNoticeBannerView()
                     MainCategoryView()
                     BoxOfficeView()
