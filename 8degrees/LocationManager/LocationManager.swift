@@ -10,30 +10,34 @@ import CoreLocation
 import MapKit
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManger = CLLocationManager()
+    var locationManger: CLLocationManager?
     
-    @Published var location: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
-    override init() {
-        super.init()
-        locationManger.delegate = self
+    func checkIfLocationServicesIsEnabled() {
+        locationManger = CLLocationManager()
+        locationManger?.delegate = self
     }
     
-    func requestLocation() {
-        locationManger.requestLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
+    private func checkLocationAuthorization() {
+        guard let locationManger = locationManger else { return }
         
-        DispatchQueue.main.async {
-            self.location = location.coordinate
-            self.region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        switch locationManger.authorizationStatus {
+            
+        case .notDetermined:
+            locationManger.requestWhenInUseAuthorization()
+        case .restricted:
+            print("restricted")
+        case .denied:
+            print("denied")
+        case .authorizedAlways, .authorizedWhenInUse:
+            region = MKCoordinateRegion(center: locationManger.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        @unknown default:
+            break
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
     }
 }
