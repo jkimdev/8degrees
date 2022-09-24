@@ -19,9 +19,6 @@ struct MapView: View {
                 .onAppear{
                     locationManager.checkIfLocationServicesIsEnabled()
                 }
-            LocationButton(action: {
-                locationManager.checkIfLocationServicesIsEnabled()
-            })
         }
     }
 }

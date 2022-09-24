@@ -12,11 +12,32 @@ import MapKit
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManger: CLLocationManager?
     
+    @Published var location: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
     func checkIfLocationServicesIsEnabled() {
         locationManger = CLLocationManager()
         locationManger?.delegate = self
+    }
+    
+    func requestLocation() {
+        locationManger?.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        
+        DispatchQueue.main.async {
+            self.location = location.coordinate
+            self.region = MKCoordinateRegion(
+                center: location.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            )
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
     
     private func checkLocationAuthorization() {
@@ -31,7 +52,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         case .denied:
             print("denied")
         case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManger.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+            requestLocation()
         @unknown default:
             break
         }
