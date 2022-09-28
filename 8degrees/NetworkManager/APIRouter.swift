@@ -12,8 +12,9 @@ enum APIRouter {
     case getPerformancesByGenre(genre: String, startIdx: Int, endIdx: Int)
     case getBoxOffices
     case getPerformanceById(id: String)
-    case findUpComingPerformance(date: String, startIdx: String, endIdx: String)
+    case getUpComingPerformance(date: String, startIdx: String, endIdx: String)
     case getGenres
+    case getNearFacility(date: String, latitude: Double, longitude: Double)
 }
 
 extension APIRouter: URLRequestConvertible {
@@ -32,7 +33,9 @@ extension APIRouter: URLRequestConvertible {
             return .get
         case .getPerformancesByGenre:
             return .get
-        case .findUpComingPerformance:
+        case .getUpComingPerformance:
+            return .get
+        case .getNearFacility:
             return .get
         }
     }
@@ -47,8 +50,10 @@ extension APIRouter: URLRequestConvertible {
             return "/genres"
         case .getPerformancesByGenre:
             return "performance/genre"
-        case .findUpComingPerformance:
+        case .getUpComingPerformance:
             return "performance/upComing"
+        case .getNearFacility:
+            return "facility/near"
         }
     }
     
@@ -67,8 +72,10 @@ extension APIRouter: URLRequestConvertible {
             return nil
         case .getPerformancesByGenre(genre: let genre, startIdx: let startIdx, endIdx: let endIdx):
             return ["genre": genre, "startIdx": startIdx, "endIdx": endIdx]
-        case .findUpComingPerformance(date: let date, startIdx: let startIdx, endIdx: let endIdx):
+        case .getUpComingPerformance(date: let date, startIdx: let startIdx, endIdx: let endIdx):
             return ["date": date, "startIdx": startIdx, "endIdx": endIdx]
+        case .getNearFacility(date: let date, latitude: let latitude, longitude: let longitude):
+            return ["date": date, "latitude": latitude, "longitude": longitude]
         }
     }
     

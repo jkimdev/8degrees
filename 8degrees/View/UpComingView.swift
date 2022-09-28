@@ -45,7 +45,7 @@ extension UpComingView {
         @Published var performances: [Performance] = []
         
         func getUpComing(date: String) async {
-            APIClient.shared.request(PerformanceResponse.self, router: .findUpComingPerformance(date: date, startIdx: "1", endIdx: "10")) { [weak self] response in
+            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(date: date, startIdx: "1", endIdx: "10")) { [weak self] response in
                 self?.performances = response.result
                 
             } failure: { error in

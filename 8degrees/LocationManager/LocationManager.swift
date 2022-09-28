@@ -18,6 +18,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     func checkIfLocationServicesIsEnabled() {
         locationManger = CLLocationManager()
         locationManger?.delegate = self
+        locationManger?.startUpdatingLocation()
     }
     
     func requestLocation() {
@@ -34,6 +35,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                 span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
             )
         }
+        locationManger?.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

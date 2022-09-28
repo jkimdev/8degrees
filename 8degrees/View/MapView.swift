@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocationUI
 import MapKit
+import Combine
 
 struct MapView: View {
     @StateObject var locationManager = LocationManager()
@@ -18,6 +19,7 @@ struct MapView: View {
                 .edgesIgnoringSafeArea(.all)
                 .onAppear{
                     locationManager.checkIfLocationServicesIsEnabled()
+                    print("위치: \(locationManager.locationManger?.location)")
                 }
         }
     }
