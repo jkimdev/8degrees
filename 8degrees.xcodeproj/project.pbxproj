@@ -20,6 +20,7 @@
 		1350C26628D47B1E00A82C71 /* UpComingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350C26528D47B1E00A82C71 /* UpComingView.swift */; };
 		1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABB28450F8E00470064 /* ImageExtension.swift */; };
 		1351FABE2845146B00470064 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABD2845146B00470064 /* PageControl.swift */; };
+		13560A9928E9AB6D009393AE /* FacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13560A9828E9AB6D009393AE /* FacilityModel.swift */; };
 		1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363FCDE283B991700DC2D00 /* SingleContentView.swift */; };
 		136A216228E5E9A80053D5D9 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136A216128E5E9A80053D5D9 /* TitleView.swift */; };
 		137999FA28D9CC48000B3209 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137999F928D9CC48000B3209 /* LocationManager.swift */; };
@@ -78,6 +79,7 @@
 		1351FABB28450F8E00470064 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		1351FABD2845146B00470064 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		135443C528B4FC9D00130DC7 /* 8degreesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 8degreesDebug.entitlements; sourceTree = "<group>"; };
+		13560A9828E9AB6D009393AE /* FacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityModel.swift; sourceTree = "<group>"; };
 		1363FCDE283B991700DC2D00 /* SingleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContentView.swift; sourceTree = "<group>"; };
 		136A216128E5E9A80053D5D9 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		137999F928D9CC48000B3209 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				132933FD28C83ED700EF09A4 /* PerformanceModel.swift */,
 				13C843EE28BCDDE0004FFFAF /* SingBoxOfficeModel.swift */,
 				132933F928C5F87D00EF09A4 /* GenreModel.swift */,
+				13560A9828E9AB6D009393AE /* FacilityModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13560A9928E9AB6D009393AE /* FacilityModel.swift in Sources */,
 				13F1918F2823499F0010B748 /* ContentView.swift in Sources */,
 				132933FA28C5F87D00EF09A4 /* GenreModel.swift in Sources */,
 				137999FA28D9CC48000B3209 /* LocationManager.swift in Sources */,

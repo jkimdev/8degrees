@@ -25,6 +25,12 @@ struct MapView: View {
     }
 }
 
+extension MapView {
+    class ViewModel: ObservableObject {
+        @Published var facilities: [Facility] = []
+    }
+}
+
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
