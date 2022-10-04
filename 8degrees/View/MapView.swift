@@ -11,16 +11,17 @@ import MapKit
 import Combine
 
 struct MapView: View {
+    @ObservedObject var viewModel = MapView.ViewModel()
     @StateObject var locationManager = LocationManager()
-    
     var body: some View {
         ZStack(alignment: .bottom) {
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true)
                 .edgesIgnoringSafeArea(.all)
                 .onAppear{
                     locationManager.checkIfLocationServicesIsEnabled()
-                    print("위치: \(locationManager.locationManger?.location)")
                 }
+        }.task {
+            await viewModel.getNearFacilities(date: "2022-09-22", latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0, longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
     }
 }
@@ -28,6 +29,14 @@ struct MapView: View {
 extension MapView {
     class ViewModel: ObservableObject {
         @Published var facilities: [Facility] = []
+        
+        func getNearFacilities(date: String, latitude: Double, longitude: Double) async {
+            APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(date: date, latitude: latitude, longitude: longitude)) { [weak self] response in
+                self?.facilities = response.result
+            } failure: { error in
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
