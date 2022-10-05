@@ -12,7 +12,10 @@ struct FacilityResponse: Decodable {
     let result: [Facility]
 }
 
-struct Facility: Decodable {
+struct Facility: Decodable, Identifiable {
+    var id: String {
+        self.facilityId
+    }
     let facilityId: String
     let place: String
     let telNo: String
@@ -21,5 +24,4 @@ struct Facility: Decodable {
     let latitude: Double
     let longitude: Double
     let distance: Double
-    
 }

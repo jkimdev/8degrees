@@ -15,13 +15,20 @@ struct MapView: View {
     @StateObject var locationManager = LocationManager()
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $locationManager.region, showsUserLocation: true)
+            Map(coordinateRegion: $locationManager.region,
+                showsUserLocation: true,
+                annotationItems: viewModel.facilities) { place in
+                MapMarker(coordinate: CLLocationCoordinate2D(latitude: place.latitude,
+                                                             longitude: place.longitude))
+            }
                 .edgesIgnoringSafeArea(.all)
                 .onAppear{
                     locationManager.checkIfLocationServicesIsEnabled()
                 }
         }.task {
-            await viewModel.getNearFacilities(date: "2022-09-22", latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0, longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
+            await viewModel.getNearFacilities(date: "2022-09-22",
+                                              latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
+                                              longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
     }
 }
