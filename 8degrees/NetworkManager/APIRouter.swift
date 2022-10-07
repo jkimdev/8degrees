@@ -14,13 +14,13 @@ enum APIRouter {
     case getPerformanceById(id: String)
     case getUpComingPerformance(date: String, startIdx: String, endIdx: String)
     case getGenres
-    case getNearFacility(date: String, latitude: Double, longitude: Double)
+    case getNearFacility(latitude: Double, longitude: Double)
 }
 
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://192.168.35.38:8080")!
+        return URL(string: "http://172.30.1.60:8080")!
     }
     
     var method: HTTPMethod {
@@ -74,8 +74,8 @@ extension APIRouter: URLRequestConvertible {
             return ["genre": genre, "startIdx": startIdx, "endIdx": endIdx]
         case .getUpComingPerformance(date: let date, startIdx: let startIdx, endIdx: let endIdx):
             return ["date": date, "startIdx": startIdx, "endIdx": endIdx]
-        case .getNearFacility(date: let date, latitude: let latitude, longitude: let longitude):
-            return ["date": date, "latitude": latitude, "longitude": longitude]
+        case .getNearFacility(latitude: let latitude, longitude: let longitude):
+            return ["latitude": latitude, "longitude": longitude]
         }
     }
     

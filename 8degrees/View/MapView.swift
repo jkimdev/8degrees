@@ -18,17 +18,21 @@ struct MapView: View {
             Map(coordinateRegion: $locationManager.region,
                 showsUserLocation: true,
                 annotationItems: viewModel.facilities) { place in
-                MapMarker(coordinate: CLLocationCoordinate2D(latitude: place.latitude,
-                                                             longitude: place.longitude))
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.latitude,
+                                                                 longitude: place.longitude), content: {
+                    Circle().onTapGesture {
+                        print("print")
+                    }
+                })
             }
                 .edgesIgnoringSafeArea(.all)
                 .onAppear{
                     locationManager.checkIfLocationServicesIsEnabled()
                 }
         }.task {
-            await viewModel.getNearFacilities(date: "2022-09-22",
-                                              latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
-                                              longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
+            await viewModel.getNearFacilities(
+                latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
+                longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
     }
 }
@@ -37,8 +41,8 @@ extension MapView {
     class ViewModel: ObservableObject {
         @Published var facilities: [Facility] = []
         
-        func getNearFacilities(date: String, latitude: Double, longitude: Double) async {
-            APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(date: date, latitude: latitude, longitude: longitude)) { [weak self] response in
+        func getNearFacilities(latitude: Double, longitude: Double) async {
+            APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(latitude: latitude, longitude: longitude)) { [weak self] response in
                 self?.facilities = response.result
             } failure: { error in
                 print(error.localizedDescription)
