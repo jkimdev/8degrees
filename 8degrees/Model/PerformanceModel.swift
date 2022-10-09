@@ -17,4 +17,5 @@ struct Performance: Decodable {
     let title: String
     let poster: String
     let genre: String
+    let startDate: String
 }
