@@ -29,6 +29,7 @@
 		139BF6FB28D85E2F00DCF839 /* UpComingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */; };
 		13ADAC8328F018F8006F29B3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAC8228F018F8006F29B3 /* StringExtension.swift */; };
 		13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */; };
+		13B1E38C28F24C430056D6F4 /* SheetPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E38B28F24C430056D6F4 /* SheetPresentation.swift */; };
 		13B6A3A02892B91000E4568F /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */; };
 		13C2B57128B625A2003DC171 /* BoxOfficeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */; };
 		13C843ED28BCDD3A004FFFAF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 13C843EC28BCDD3A004FFFAF /* Kingfisher */; };
@@ -89,6 +90,7 @@
 		139BF6FA28D85E2F00DCF839 /* UpComingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCardView.swift; sourceTree = "<group>"; };
 		13ADAC8228F018F8006F29B3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		13B15399283DC10800A9D0FF /* MainNoticeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNoticeBannerView.swift; sourceTree = "<group>"; };
+		13B1E38B28F24C430056D6F4 /* SheetPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentation.swift; sourceTree = "<group>"; };
 		13B6A39F2892B91000E4568F /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
 		13C2B57028B625A2003DC171 /* BoxOfficeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeCardView.swift; sourceTree = "<group>"; };
 		13C843EE28BCDDE0004FFFAF /* SingBoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingBoxOfficeModel.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				1351FABD2845146B00470064 /* PageControl.swift */,
 				1351FABB28450F8E00470064 /* ImageExtension.swift */,
 				13ADAC8228F018F8006F29B3 /* StringExtension.swift */,
+				13B1E38B28F24C430056D6F4 /* SheetPresentation.swift */,
 			);
 			path = "Extensions&Controller";
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				132933FA28C5F87D00EF09A4 /* GenreModel.swift in Sources */,
 				137999FA28D9CC48000B3209 /* LocationManager.swift in Sources */,
 				132C3C432894E1630085DCD9 /* APIClient.swift in Sources */,
+				13B1E38C28F24C430056D6F4 /* SheetPresentation.swift in Sources */,
 				13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */,
 				136A216228E5E9A80053D5D9 /* TitleView.swift in Sources */,
 				13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */,
