@@ -10,6 +10,7 @@ import Kingfisher
 
 struct UpComingCardView: View {
     var performance: Performance
+    let currentDate: Date = Date.now
     var body: some View {
         ZStack(alignment: .topTrailing) {
             ZStack(alignment: .bottomLeading) {
@@ -21,7 +22,7 @@ struct UpComingCardView: View {
                 }
                 //                Text("\(boxOffice.ranking)").font(.system(size: 50).bold().italic()).foregroundColor(Color.white).padding(.bottom, -8)
             }
-            Text("D-1")
+            Text("D\(performance.startDate.dayUntil(currentDate))")
                 .font(.fontRegular(size: 8))
                 .padding(8)
                 .foregroundColor(.white)
@@ -33,6 +34,6 @@ struct UpComingCardView: View {
 
 struct UpComingCardView_Previews: PreviewProvider {
     static var previews: some View {
-        UpComingCardView(performance: Performance(performanceId: "1", title: "팔도: 개발자의 반란", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", genre: "musical"))
+        UpComingCardView(performance: Performance(performanceId: "1", title: "팔도: 개발자의 반란", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", genre: "musical", startDate: "2022-09-01"))
     }
 }
