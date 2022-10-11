@@ -13,23 +13,23 @@ struct ContentListView: View {
     @StateObject var viewModel = ContentListView.viewModel()
     var genre: String
     var body: some View {
-            List(self.viewModel.performances, id: \.performanceId) { performance in
-                NavigationLink {
-                    SingleContentView(performanceId: performance.performanceId)
-                } label: {
-                    HStack(alignment: .top) {
-                        KFImage(URL(string: performance.poster))
-                            .centerCropped()
-                            .frame(width: 75, height: 100)
-                            .cornerRadius(8)
-                        Text(performance.title)
-                    }
+        List(self.viewModel.performances, id: \.performanceId) { performance in
+            NavigationLink {
+                SingleContentView(performanceId: performance.performanceId)
+            } label: {
+                HStack(alignment: .top) {
+                    KFImage(URL(string: performance.poster))
+                        .centerCropped()
+                        .frame(width: 75, height: 100)
+                        .cornerRadius(8)
+                    Text(performance.title)
                 }
             }
-            .navigationBarTitle("")
-            .task {
-                await self.viewModel.getPerformanceList(genre: self.genre)
-            }
+        }
+        .navigationBarTitle(self.viewModel.genreToString(genre))
+        .task {
+            await self.viewModel.getPerformanceList(genre: self.genre)
+        }
     }
 }
 
@@ -39,14 +39,35 @@ extension ContentListView {
         @Published var isLoading: Bool = false
         
         func getPerformanceList(genre: String) async {
-//            self.isLoading = true
+            //            self.isLoading = true
             APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, startIdx: 1, endIdx: 30)) { [weak self] response in
                 
                 self?.performances = response.result
-//                self?.isLoading = false
-
+                //                self?.isLoading = false
+                
             } failure: { error in
                 print(error.localizedDescription)
+            }
+        }
+        
+        func genreToString(_ genre: String) -> String {
+            switch genre {
+            case "AAAA":
+                return "연극"
+            case "AAAB":
+                return "뮤지컬"
+            case "BBBA":
+                return "무용"
+            case "CCCA":
+                return "클래식"
+            case "CCCB":
+                return "오페라"
+            case "CCCC":
+                return "국악"
+            case "EEEA":
+                return "복합"
+            default:
+                return "UNKNOWN"
             }
         }
     }
