@@ -40,10 +40,19 @@ struct MapView: View {
 extension MapView {
     class ViewModel: ObservableObject {
         @Published var facilities: [Facility] = []
+        @Published var performances: [Performance] = []
         
         func getNearFacilities(latitude: Double, longitude: Double) async {
             APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(latitude: latitude, longitude: longitude)) { [weak self] response in
                 self?.facilities = response.result
+            } failure: { error in
+                print(error.localizedDescription)
+            }
+        }
+        
+        func getNearPerformances(facility: String, date: String, startIdx: String, endIdx: String) {
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, date: date, startIdx: startIdx, endIdx: endIdx)) { response in
+                self.performances = response.result
             } failure: { error in
                 print(error.localizedDescription)
             }
