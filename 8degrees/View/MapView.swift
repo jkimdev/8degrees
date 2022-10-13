@@ -13,6 +13,7 @@ import Combine
 struct MapView: View {
     @ObservedObject var viewModel = MapView.ViewModel()
     @StateObject var locationManager = LocationManager()
+    @State var isPresented: Bool = false
     var body: some View {
         ZStack(alignment: .bottom) {
             Map(coordinateRegion: $locationManager.region,
@@ -22,6 +23,10 @@ struct MapView: View {
                                                                  longitude: place.longitude), content: {
                     Circle().onTapGesture {
                         print("print")
+                        viewModel.getNearPerformances(facility: place.facilityId, date: "2022-09-01", startIdx: "1", endIdx: "15")
+                        if !viewModel.performances.isEmpty {
+                            self.isPresented = true
+                        }
                     }
                 })
             }
@@ -33,6 +38,9 @@ struct MapView: View {
             await viewModel.getNearFacilities(
                 latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
                 longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
+        }
+        .sheetWithDetents(isPresented: $isPresented, dentents: [.medium()], onDismiss: nil) {
+            PageView(pages: viewModel.performances.map {UpComingCardView(performance: $0)})
         }
     }
 }
