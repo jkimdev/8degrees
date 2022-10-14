@@ -17,6 +17,7 @@
 		1331362C28955E3B00032413 /* DalseoHealingMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1331362928955E3B00032413 /* DalseoHealingMedium.otf */; };
 		13317B33283E76D700094156 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B32283E76D700094156 /* FontExtension.swift */; };
 		13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13317B3A283F7ABB00094156 /* MainCategoryView.swift */; };
+		1333774428F95BF800FA11E7 /* BottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333774328F95BF800FA11E7 /* BottomInfoView.swift */; };
 		1350C26628D47B1E00A82C71 /* UpComingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350C26528D47B1E00A82C71 /* UpComingView.swift */; };
 		1351FABC28450F8E00470064 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABB28450F8E00470064 /* ImageExtension.swift */; };
 		1351FABE2845146B00470064 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351FABD2845146B00470064 /* PageControl.swift */; };
@@ -77,6 +78,7 @@
 		1331362928955E3B00032413 /* DalseoHealingMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DalseoHealingMedium.otf; sourceTree = "<group>"; };
 		13317B32283E76D700094156 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		13317B3A283F7ABB00094156 /* MainCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryView.swift; sourceTree = "<group>"; };
+		1333774328F95BF800FA11E7 /* BottomInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInfoView.swift; sourceTree = "<group>"; };
 		1350C26528D47B1E00A82C71 /* UpComingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingView.swift; sourceTree = "<group>"; };
 		1351FABB28450F8E00470064 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		1351FABD2845146B00470064 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				1350C26528D47B1E00A82C71 /* UpComingView.swift */,
 				137999FB28D9E777000B3209 /* MapView.swift */,
 				136A216128E5E9A80053D5D9 /* TitleView.swift */,
+				1333774328F95BF800FA11E7 /* BottomInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				13317B33283E76D700094156 /* FontExtension.swift in Sources */,
 				13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
+				1333774428F95BF800FA11E7 /* BottomInfoView.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */,
 				137999FC28D9E777000B3209 /* MapView.swift in Sources */,
 				13D1CD16289390B5000B282F /* APIRouter.swift in Sources */,

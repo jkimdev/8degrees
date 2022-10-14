@@ -32,8 +32,8 @@ struct UpComingCardView: View {
     }
 }
 
-struct UpComingCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        UpComingCardView(performance: Performance(performanceId: "1", title: "팔도: 개발자의 반란", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", genre: "musical", startDate: "2022-09-01"))
-    }
-}
+//struct UpComingCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UpComingCardView(performance: Performance(performanceId: "1", title: "팔도: 개발자의 반란", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", genre: "musical", startDate: "2022-09-01"))
+//    }
+//}
