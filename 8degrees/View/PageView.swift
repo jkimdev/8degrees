@@ -26,7 +26,8 @@ struct PageView<Page:View>: View {
             //            PageControl(numberOfPages: pages.count, currentPage: $currentPage)
             //                .frame(width: CGFloat(pages.count * 18))
             //                .padding(.trailing)
-        }.frame(width: UIScreen.main.bounds.width, height: 130)
+        }
+//        .frame(width: UIScreen.main.bounds.width, height: 130)
         
     }
 }

@@ -40,7 +40,7 @@ struct MapView: View {
                 longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
         .sheetWithDetents(isPresented: $isPresented, dentents: [.medium()], onDismiss: nil) {
-            PageView(pages: viewModel.performances.map {UpComingCardView(performance: $0)})
+            PageView(pages: viewModel.performances.map {BottomInfoView(performance: $0)})
         }
     }
 }
