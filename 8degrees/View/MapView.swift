@@ -21,11 +21,12 @@ struct MapView: View {
                 annotationItems: viewModel.facilities) { place in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.latitude,
                                                                  longitude: place.longitude), content: {
-                    Circle().onTapGesture {
-                        print("print")
-                        viewModel.getNearPerformances(facility: place.facilityId, date: "2022-09-01", startIdx: "1", endIdx: "15")
-                        if !viewModel.performances.isEmpty {
-                            self.isPresented = true
+                    Circle().frame(width: 15, height: 15).onTapGesture {
+                        print(place.facilityId)
+                        viewModel.getNearPerformances(facility: place.facilityId, startIdx: "1", endIdx: "15") {
+                            if !viewModel.performances.isEmpty {
+                                self.isPresented = true
+                            }
                         }
                     }
                 })
@@ -58,9 +59,10 @@ extension MapView {
             }
         }
         
-        func getNearPerformances(facility: String, date: String, startIdx: String, endIdx: String) {
-            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, date: date, startIdx: startIdx, endIdx: endIdx)) { response in
+        func getNearPerformances(facility: String, startIdx: String, endIdx: String, _ completion: @escaping ()-> Void) {
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, startIdx: startIdx, endIdx: endIdx)) { response in
                 self.performances = response.result
+                completion()
             } failure: { error in
                 print(error.localizedDescription)
             }
