@@ -16,6 +16,6 @@ extension String {
         let day = Calendar.current.dateComponents([.day],
                                                   from: currentDate,
                                                   to: targetDate).day ?? 0
-        return day != 0 ? String(day) : "Day"
+        return day != 0 ? String(day) : "-Day"
     }
 }
