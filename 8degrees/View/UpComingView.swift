@@ -25,7 +25,7 @@ struct UpComingView: View {
             }
         }
         .task{
-            await self.viewModel.getUpComing(date: "2022-09-01")
+            await self.viewModel.getUpComing()
         }
         //        .overlay{
         //            self.viewModel.isLoading ? ProgressView(value: 0)
@@ -44,8 +44,8 @@ extension UpComingView {
     class viewModel: ObservableObject {
         @Published var performances: [Performance] = []
         
-        func getUpComing(date: String) async {
-            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(date: date, startIdx: "1", endIdx: "10")) { [weak self] response in
+        func getUpComing() async {
+            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(startIdx: "1", endIdx: "10")) { [weak self] response in
                 self?.performances = response.result
                 
             } failure: { error in
