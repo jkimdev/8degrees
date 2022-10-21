@@ -16,6 +16,9 @@ struct BoxOfficeCardView: View {
                 VStack {
                     KFImage(URL(string: boxOffice.poster))
                         .centerCropped()
+                        .overlay (
+                            LinearGradient(colors: [.clear, .black.opacity(0.2)], startPoint: .top, endPoint: .bottom)
+                        )
                         .frame(width: 160, height: 225, alignment: .center)
                         .cornerRadius(8)
                 }
