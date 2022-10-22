@@ -65,7 +65,7 @@ struct SingleContentView: View {
     
     var body: some View {
             ScrollView(showsIndicators: false) {
-                KFImage(URL(string: self.viewModel.performances.first?.poster ?? ""))
+                KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
                     .centerCropped()
                     .frame(height: 300)
                 //                        .scaledToFill()
@@ -91,17 +91,17 @@ struct SingleContentView: View {
                             Text("Article Written By")
                                 .font(.custom("Avenir Next", size: 12))
                                 .foregroundColor(.gray)
-                            Text("Jaemin Kim")
+                            Text(self.viewModel.performances?.title ?? "")
                                 .font(.custom("Avenir Next", size: 17))
                         }
                     }
-                    Text("15 May 2022 • 5 min read")
+                    Text(self.viewModel.performances?.startDate ?? "")
                         .font(.custom("AvenirNext-Regular", size: 12))
                         .foregroundColor(.gray)
                     
                     Text("How to build a parallax scroll view")
                         .font(.custom("Avenir Next", size: 28))
-                    Text(loremIpsum)
+                    Text(self.viewModel.performances?.story ?? "")
                         .font(.custom("AvenirNext-Regular", size: 17))
                     
                 }
@@ -116,14 +116,14 @@ struct SingleContentView: View {
 
 extension SingleContentView {
     class viewModel: ObservableObject {
-        @Published private(set) var performances: [Performance] = []
-        @Published private(set) var isLoading: Bool = false
+        @Published var performances: Performance?
+        @Published var isLoading: Bool = false
         
         func getPerformance(id: String) async {
 //            self.isLoading = true
             APIClient.shared.request(PerformanceResponse.self, router: APIRouter.getPerformanceById(id: id)) { [weak self] response in
                 
-                self?.performances = response.result
+                self?.performances = response.result.first ?? nil
                 
 //                self?.isLoading = false
                 
