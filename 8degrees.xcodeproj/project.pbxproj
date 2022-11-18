@@ -50,6 +50,7 @@
 		13F191A82823499F0010B748 /* _degreesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191A72823499F0010B748 /* _degreesUITests.swift */; };
 		13F191AA2823499F0010B748 /* _degreesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191A92823499F0010B748 /* _degreesUITestsLaunchTests.swift */; };
 		BF142A47291937E300550BA1 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF142A46291937E300550BA1 /* PopUpView.swift */; };
+		BFBC34942927AA1E00089FE3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BFBC34932927AA1E00089FE3 /* PopupView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFBC34942927AA1E00089FE3 /* PopupView in Frameworks */,
 				13C843ED28BCDD3A004FFFAF /* Kingfisher in Frameworks */,
 				13D1CD1328938C61000B282F /* Alamofire in Frameworks */,
 			);
@@ -326,6 +328,7 @@
 			packageProductDependencies = (
 				13D1CD1228938C61000B282F /* Alamofire */,
 				13C843EC28BCDD3A004FFFAF /* Kingfisher */,
+				BFBC34932927AA1E00089FE3 /* PopupView */,
 			);
 			productName = 8degrees;
 			productReference = 13F191892823499F0010B748 /* 8degrees.app */;
@@ -402,6 +405,7 @@
 			packageReferences = (
 				13D1CD1128938C61000B282F /* XCRemoteSwiftPackageReference "Alamofire" */,
 				13C843EB28BCDD3A004FFFAF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BFBC34922927AA1E00089FE3 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 13F1918A2823499F0010B748 /* Products */;
 			projectDirPath = "";
@@ -828,6 +832,14 @@
 				kind = branch;
 			};
 		};
+		BFBC34922927AA1E00089FE3 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -840,6 +852,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13D1CD1128938C61000B282F /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BFBC34932927AA1E00089FE3 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFBC34922927AA1E00089FE3 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
