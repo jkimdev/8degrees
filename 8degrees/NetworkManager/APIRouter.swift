@@ -21,7 +21,7 @@ enum APIRouter {
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://10.17.6.48:8080")!
+        return URL(string: "http://192.168.35.180:8080")!
     }
     
     var method: HTTPMethod {

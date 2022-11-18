@@ -9,9 +9,10 @@ import SwiftUI
 import CoreLocationUI
 import MapKit
 import Combine
+import PopupView
 
 struct MapView: View {
-    @ObservedObject var viewModel = MapView.ViewModel()
+    @StateObject var viewModel = MapView.ViewModel()
     @StateObject var locationManager = LocationManager()
     @State var isPresented: Bool = false
     var body: some View {
@@ -40,8 +41,9 @@ struct MapView: View {
                 latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
                 longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
-        .sheetWithDetents(isPresented: $isPresented, dentents: [.medium()], onDismiss: nil) {
-            PageView(pages: viewModel.performances.map {BottomInfoView(performance: $0)})
+        .sheet(isPresented: $isPresented) {
+            PageView(pages: viewModel.performances.map {
+                BottomInfoView(performance: $0)}).presentationDetents([.height(200)])
         }
     }
 }

@@ -13,7 +13,7 @@ struct PageView<Page:View>: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            PageViewController(pages: pages, currentPage: $currentPage)
+            PageViewController(pages: pages, currentPage: $currentPage).frame(height: 200)
             ZStack {
                 Capsule()
                     .opacity(0.3)
