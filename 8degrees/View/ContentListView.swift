@@ -8,6 +8,7 @@
 import SwiftUI
 import Alamofire
 import Kingfisher
+import Combine
 
 struct ContentListView: View {
     @StateObject var viewModel = ContentListView.viewModel()
@@ -37,17 +38,22 @@ extension ContentListView {
     class viewModel: ObservableObject {
         @Published var performances: [Performance] = []
         @Published var isLoading: Bool = false
+        var cancellable = Set<AnyCancellable>()
         
         func getPerformanceList(genre: String) async {
             //            self.isLoading = true
-            APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, startIdx: 1, endIdx: 30)) { [weak self] response in
-                
-                self?.performances = response.result
-                //                self?.isLoading = false
-                
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, startIdx: 1, endIdx: 30))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get boxoffice done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.performances = response.result
+                }
+                .store(in: &cancellable)
         }
         
         func genreToString(_ genre: String) -> String {

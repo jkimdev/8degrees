@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import Combine
 
 struct SingleContentView: View {
     
@@ -118,18 +119,22 @@ extension SingleContentView {
     class viewModel: ObservableObject {
         @Published var performances: Performance?
         @Published var isLoading: Bool = false
+        var cancellable = Set<AnyCancellable>()
         
         func getPerformance(id: String) async {
 //            self.isLoading = true
-            APIClient.shared.request(PerformanceResponse.self, router: APIRouter.getPerformanceById(id: id)) { [weak self] response in
-                
-                self?.performances = response.result.first ?? nil
-                
-//                self?.isLoading = false
-                
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            APIClient.shared.request(PerformanceResponse.self, router: APIRouter.getPerformanceById(id: id))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get boxoffice done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.performances = response.result.first
+                }
+                .store(in: &cancellable)
         }
     }
 }

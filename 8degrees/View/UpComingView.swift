@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct UpComingView: View {
     @ObservedObject var viewModel = UpComingView.viewModel()
@@ -17,7 +18,7 @@ struct UpComingView: View {
                     HStack {
                         ForEach(self.viewModel.performances, id: \.performanceId) { post in
                             NavigationLink(destination: SingleContentView(performanceId: post.performanceId)) {
-                                                                UpComingCardView(performance: post)
+                                UpComingCardView(performance: post)
                             }
                         }
                     }.padding(.horizontal)
@@ -43,14 +44,21 @@ struct UpComingView_Previews: PreviewProvider {
 extension UpComingView {
     class viewModel: ObservableObject {
         @Published var performances: [Performance] = []
+        var cancellable = Set<AnyCancellable>()
         
         func getUpComing() async {
-            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(startIdx: "1", endIdx: "10")) { [weak self] response in
-                self?.performances = response.result
-                
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(startIdx: "1", endIdx: "10"))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get boxoffice done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.performances = response.result
+                }
+                .store(in: &cancellable)
         }
     }
 }

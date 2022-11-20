@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import Combine
 
 struct BoxOfficeView: View {
     @ObservedObject var viewModel = BoxOfficeView.viewModel()
@@ -19,7 +20,7 @@ struct BoxOfficeView: View {
                     HStack {
                         ForEach(self.viewModel.boxOffices, id: \.performanceId) { post in
                             NavigationLink(destination: SingleContentView(performanceId: post.performanceId)) {
-                            BoxOfficeCardView(boxOffice: post)
+                                BoxOfficeCardView(boxOffice: post)
                             }
                         }
                     }.padding([.horizontal, .bottom])
@@ -40,18 +41,22 @@ extension BoxOfficeView {
     class viewModel: ObservableObject {
         @Published private(set) var boxOffices: [BoxOffice] = []
         @Published private(set) var isLoading: Bool = false
+        var cancellable = Set<AnyCancellable>()
         
         func getBoxOffice() async {
-//            self.isLoading = true
-            APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffices) { [weak self] response in
-                
-                self?.boxOffices = response.result
-                
-//                self?.isLoading = false
-                
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            //            self.isLoading = true
+            APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffices)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get boxoffice done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.boxOffices = response.result
+                }
+                .store(in: &cancellable)
         }
     }
 }

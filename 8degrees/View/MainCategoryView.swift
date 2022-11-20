@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import Combine
 
 struct MainCategoryView: View {
     
@@ -49,15 +50,22 @@ extension MainCategoryView {
     class viewModel: ObservableObject {
         @Published private(set) var genres: [Genre] = []
         @Published private(set) var isLoading: Bool = false
-        
+        var cancellable = Set<AnyCancellable>()
+
         func getGenres() async {
-//            self.isLoading = true
-            APIClient.shared.request(GenreResponse.self, router: APIRouter.getGenres) { [weak self] response in
-                self?.genres = response.result
-//                self?.isLoading = false
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            //            self.isLoading = true
+            APIClient.shared.request(GenreResponse.self, router: APIRouter.getGenres)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get boxoffice done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.genres = response.result
+                }
+                .store(in: &cancellable)
         }
     }
 }

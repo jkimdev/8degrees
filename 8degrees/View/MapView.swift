@@ -23,7 +23,6 @@ struct MapView: View {
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.latitude,
                                                                  longitude: place.longitude), content: {
                     Circle().frame(width: 15, height: 15).onTapGesture {
-                        print(place.facilityId)
                         viewModel.getNearPerformances(facility: place.facilityId, startIdx: "1", endIdx: "15") {
                             if !viewModel.performances.isEmpty {
                                 self.isPresented = true
@@ -52,22 +51,37 @@ extension MapView {
     class ViewModel: ObservableObject {
         @Published var facilities: [Facility] = []
         @Published var performances: [Performance] = []
+        @Published var isPresented: Bool = false
+        var cancellable = Set<AnyCancellable>()
         
         func getNearFacilities(latitude: Double, longitude: Double) async {
-            APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(latitude: latitude, longitude: longitude)) { [weak self] response in
-                self?.facilities = response.result
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(latitude: latitude, longitude: longitude))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get near facilities done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.facilities = response.result
+                }
+                .store(in: &cancellable)
         }
         
         func getNearPerformances(facility: String, startIdx: String, endIdx: String, _ completion: @escaping ()-> Void) {
-            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, startIdx: startIdx, endIdx: endIdx)) { response in
-                self.performances = response.result
-                completion()
-            } failure: { error in
-                print(error.localizedDescription)
-            }
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, startIdx: startIdx, endIdx: endIdx))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get near performances done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.performances = response.result
+                }
+                .store(in: &cancellable)
         }
     }
 }
