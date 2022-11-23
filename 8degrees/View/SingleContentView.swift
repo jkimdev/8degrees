@@ -17,52 +17,52 @@ struct SingleContentView: View {
     @State var barHidden: Bool = true
     var performanceId: String
     
-    // 1
-    private func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
-        geometry.frame(in: .global).minY
-    }
-    
-    // 2
-    private func getOffsetForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
-        
-        let offset = getScrollOffset(geometry)
-        let sizeOffScreen = imageHeight - collapsedImageHeight // 3
-        
-        if offset < -sizeOffScreen{
-            // Since we want 75 px fixed on the screen we get our offset of -225 or anything less than. Take the abs value of
-            let imageOffset = abs(min(-sizeOffScreen, offset))
-            
-            // Now we can the amount of offset above our size off screen. So if we've scrolled -250px our size offscreen is -225px we offset our image by an additional 25 px to put it back at the amount needed to remain offscreen/amount on screen.
-            return imageOffset - sizeOffScreen
-        }
-        
-        // Image was pulled down
-        if offset > 0 {
-            return -offset
-        }
-        
-        return 0
-    }
-    
-    private func getHeightForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
-        let offset = getScrollOffset(geometry)
-        let imageHeight = geometry.size.height
-        
-        if offset > 0 {
-            return imageHeight + offset
-        }
-        
-        return imageHeight
-    }
-    
-    private func getBlurRadiusForImage(_ geometry: GeometryProxy) -> CGFloat {
-        // 2
-        let offset = geometry.frame(in: .global).maxY
-        
-        let height = geometry.size.height
-        let blur = (height - max(offset, 0)) / height // 3 (values will range from 0 - 1)
-        return blur * 6 // Values will range from 0 - 6
-    }
+//    // 1
+//    private func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
+//        geometry.frame(in: .global).minY
+//    }
+//
+//    // 2
+//    private func getOffsetForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
+//
+//        let offset = getScrollOffset(geometry)
+//        let sizeOffScreen = imageHeight - collapsedImageHeight // 3
+//        
+//        if offset < -sizeOffScreen{
+//            // Since we want 75 px fixed on the screen we get our offset of -225 or anything less than. Take the abs value of
+//            let imageOffset = abs(min(-sizeOffScreen, offset))
+//
+//            // Now we can the amount of offset above our size off screen. So if we've scrolled -250px our size offscreen is -225px we offset our image by an additional 25 px to put it back at the amount needed to remain offscreen/amount on screen.
+//            return imageOffset - sizeOffScreen
+//        }
+//
+//        // Image was pulled down
+//        if offset > 0 {
+//            return -offset
+//        }
+//
+//        return 0
+//    }
+//
+//    private func getHeightForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
+//        let offset = getScrollOffset(geometry)
+//        let imageHeight = geometry.size.height
+//
+//        if offset > 0 {
+//            return imageHeight + offset
+//        }
+//
+//        return imageHeight
+//    }
+//
+//    private func getBlurRadiusForImage(_ geometry: GeometryProxy) -> CGFloat {
+//        // 2
+//        let offset = geometry.frame(in: .global).maxY
+//
+//        let height = geometry.size.height
+//        let blur = (height - max(offset, 0)) / height // 3 (values will range from 0 - 1)
+//        return blur * 6 // Values will range from 0 - 6
+//    }
     
     var body: some View {
             ScrollView(showsIndicators: false) {
