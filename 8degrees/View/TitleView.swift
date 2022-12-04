@@ -10,13 +10,13 @@ import SwiftUI
 struct TitleView: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            Text("8Degrees").font(.fontBold(size: 32)).padding(.leading)
+            Text("8Degrees").font(.bold(size: 32)).padding(.leading)
             Spacer()
             NavigationLink(destination: {
                 MapView()
             }, label: {
                 HStack {
-                    Text("내 주변").font(.fontRegular(size: 16))
+                    Text("내 주변").font(.regular(size: 16))
                     Image(systemName: "safari.fill").imageScale(.large).padding(.trailing)
                 }
             })

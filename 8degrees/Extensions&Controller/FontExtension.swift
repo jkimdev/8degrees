@@ -8,16 +8,15 @@
 import SwiftUI
 
 extension Font {
-    static func fontRegular(size: Int) -> Font {
+    static func regular(size: Int) -> Font {
         return Font.custom("DalseoDarling", size: CGFloat(size))
     }
     
-    static func fontLight(size: Int) -> Font {
+    static func light(size: Int) -> Font {
         return Font.custom("DalseoHealingBold", size: CGFloat(size))
     }
     
-    static func fontBold(size: Int) -> Font {
+    static func bold(size: Int) -> Font {
         return Font.custom("DalseoHealingBold", size: CGFloat(size))
     }
 }
-    

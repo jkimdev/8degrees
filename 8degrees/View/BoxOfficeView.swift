@@ -14,7 +14,7 @@ struct BoxOfficeView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            Text("🎬 금주의 TOP 10").font(.fontBold(size: 18)).padding(.leading)
+            Text("🎬 금주의 TOP 10").font(.bold(size: 18)).padding(.leading)
             ScrollView(.horizontal, showsIndicators: false) {
                 VStack {
                     HStack {

@@ -23,7 +23,7 @@ struct UpComingCardView: View {
                 //                Text("\(boxOffice.ranking)").font(.system(size: 50).bold().italic()).foregroundColor(Color.white).padding(.bottom, -8)
             }
             Text("D\(performance.startDate.dayUntil(currentDate))")
-                .font(.fontRegular(size: 8))
+                .font(.regular(size: 8))
                 .padding(8)
                 .foregroundColor(.white)
                 .background(.black)

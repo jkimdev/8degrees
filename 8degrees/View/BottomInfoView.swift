@@ -18,11 +18,11 @@ struct BottomInfoView: View {
                 .cornerRadius(8)
             VStack(alignment: .leading, spacing: 8) {
                 Text(genreToString(performance.genre))
-                    .font(.fontLight(size: 8))
+                    .font(.light(size: 8))
                 Text(performance.title)
-                    .font(.fontBold(size: 16))
+                    .font(.bold(size: 16))
                 Text(performance.runtime)
-                    .font(.fontLight(size: 12))
+                    .font(.light(size: 12))
             }
             Spacer()
         }

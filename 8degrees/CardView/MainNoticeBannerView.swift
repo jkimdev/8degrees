@@ -12,9 +12,9 @@ struct MainNoticeBannerView: View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 Text("힘내요! 경북/강원")
-                    .font(.fontRegular(size: 8))
+                    .font(.regular(size: 8))
                 Text("산불피해지역 선착순 3만원 할인")
-                    .font(.fontBold(size: 16))
+                    .font(.bold(size: 16))
             }.padding()
             
             Spacer()
