@@ -26,19 +26,13 @@ extension APIRouter: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .getBoxOffices:
-            return .get
-        case .getPerformanceById:
-            return .get
-        case .getGenres:
-            return .get
-        case .getPerformancesByGenre:
-            return .get
-        case .getUpComingPerformance:
-            return .get
-        case .getNearFacility:
-            return .get
-        case .getPerformanceByFacility:
+        case .getBoxOffices,
+                .getPerformanceByFacility,
+                .getPerformanceById,
+                .getGenres,
+                .getPerformancesByGenre,
+                .getUpComingPerformance,
+                .getNearFacility:
             return .get
         }
     }
@@ -69,11 +63,9 @@ extension APIRouter: URLRequestConvertible {
     
     var parameters: Parameters? {
         switch self {
-        case .getBoxOffices:
-            return nil
-        case .getPerformanceById:
-            return nil
-        case .getGenres:
+        case .getBoxOffices,
+                .getPerformanceById,
+                .getGenres:
             return nil
         case .getPerformancesByGenre(genre: let genre, startIdx: let startIdx, endIdx: let endIdx):
             return ["genre": genre, "startIdx": startIdx, "endIdx": endIdx]
