@@ -27,8 +27,8 @@ struct BoxOfficeView: View {
                 }
             }
         }
-        .task{
-            await self.viewModel.getBoxOffice()
+        .onAppear {
+            self.viewModel.getBoxOffice()
         }
         .overlay{
             self.viewModel.isLoading ? ProgressView(value: 0)
@@ -43,7 +43,7 @@ extension BoxOfficeView {
         @Published private(set) var isLoading: Bool = false
         var cancellable = Set<AnyCancellable>()
         
-        func getBoxOffice() async {
+        func getBoxOffice() {
             //            self.isLoading = true
             APIClient.shared.request(BoxOfficeResponse.self, router: APIRouter.getBoxOffices)
                 .sink { completion in

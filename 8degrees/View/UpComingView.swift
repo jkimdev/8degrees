@@ -25,8 +25,8 @@ struct UpComingView: View {
                 }
             }
         }
-        .task{
-            await self.viewModel.getUpComing()
+        .onAppear {
+            self.viewModel.getUpComing()
         }
         //        .overlay{
         //            self.viewModel.isLoading ? ProgressView(value: 0)
@@ -46,7 +46,7 @@ extension UpComingView {
         @Published var performances: [Performance] = []
         var cancellable = Set<AnyCancellable>()
         
-        func getUpComing() async {
+        func getUpComing() {
             APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(startIdx: "1", endIdx: "10"))
                 .sink { completion in
                     switch completion {

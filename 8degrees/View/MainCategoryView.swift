@@ -30,8 +30,8 @@ struct MainCategoryView: View {
             }
         }
         .padding(.bottom)
-        .task {
-            await self.viewModel.getGenres()
+        .onAppear {
+            self.viewModel.getGenres()
         }
     }
 }
@@ -41,8 +41,8 @@ extension MainCategoryView {
         @Published private(set) var genres: [Genre] = []
         @Published private(set) var isLoading: Bool = false
         var cancellable = Set<AnyCancellable>()
-
-        func getGenres() async {
+        
+        func getGenres() {
             //            self.isLoading = true
             APIClient.shared.request(GenreResponse.self, router: APIRouter.getGenres)
                 .sink { completion in

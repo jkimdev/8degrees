@@ -28,8 +28,8 @@ struct ContentListView: View {
             }
         }
         .navigationBarTitle(self.viewModel.genreToString(genre))
-        .task {
-            await self.viewModel.getPerformanceList(genre: self.genre)
+        .onAppear {
+            self.viewModel.getPerformanceList(genre: self.genre)
         }
     }
 }
@@ -40,7 +40,7 @@ extension ContentListView {
         @Published var isLoading: Bool = false
         var cancellable = Set<AnyCancellable>()
         
-        func getPerformanceList(genre: String) async {
+        func getPerformanceList(genre: String) {
             //            self.isLoading = true
             APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, startIdx: 1, endIdx: 30))
                 .sink { completion in

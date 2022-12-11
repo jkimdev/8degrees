@@ -35,8 +35,9 @@ struct MapView: View {
                 .onAppear{
                     locationManager.checkIfLocationServicesIsEnabled()
                 }
-        }.task {
-            await viewModel.getNearFacilities(
+        }
+        .onAppear {
+            viewModel.getNearFacilities(
                 latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
                 longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
@@ -54,7 +55,7 @@ extension MapView {
         @Published var isPresented: Bool = false
         var cancellable = Set<AnyCancellable>()
         
-        func getNearFacilities(latitude: Double, longitude: Double) async {
+        func getNearFacilities(latitude: Double, longitude: Double) {
             APIClient.shared.request(FacilityResponse.self, router: .getNearFacility(latitude: latitude, longitude: longitude))
                 .sink { completion in
                     switch completion {
