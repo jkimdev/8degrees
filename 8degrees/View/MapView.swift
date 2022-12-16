@@ -12,7 +12,7 @@ import Combine
 import PopupView
 
 struct MapView: View {
-    @StateObject var viewModel = MapView.ViewModel()
+    @StateObject var viewModel = ViewModel()
     @StateObject var locationManager = LocationManager()
     @State var isPresented: Bool = false
     var body: some View {
@@ -22,13 +22,18 @@ struct MapView: View {
                 annotationItems: viewModel.facilities) { place in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.latitude,
                                                                  longitude: place.longitude), content: {
-                    Circle().frame(width: 15, height: 15).onTapGesture {
-                        viewModel.getNearPerformances(facility: place.facilityId, startIdx: "1", endIdx: "15") {
-                            if !viewModel.performances.isEmpty {
-                                self.isPresented = true
-                            }
-                        }
+                    NavigationLink {
+                        ContentListView(facilityId: place.facilityId , title: place.place, viewType: .SEARCH)
+                    } label: {
+                        Circle().frame(width: 15, height: 15)
                     }
+
+//                        .onTapGesture {
+//                            if !viewModel.performances.isEmpty {
+//                                self.isPresented = true
+//                            }
+//                            viewModel.getNearPerformances(facility: place.facilityId, startIdx: "1", endIdx: "15")
+//                        }
                 })
             }
                 .edgesIgnoringSafeArea(.all)
@@ -41,17 +46,12 @@ struct MapView: View {
                 latitude: locationManager.locationManger?.location?.coordinate.latitude ?? 0.0,
                 longitude: locationManager.locationManger?.location?.coordinate.longitude ?? 0.0)
         }
-        .sheet(isPresented: $isPresented) {
-            PageView(pages: viewModel.performances.map {
-                BottomInfoView(performance: $0)}).presentationDetents([.height(200)])
-        }
     }
 }
 
 extension MapView {
     class ViewModel: ObservableObject {
         @Published var facilities: [Facility] = []
-        @Published var performances: [Performance] = []
         @Published var isPresented: Bool = false
         var cancellable = Set<AnyCancellable>()
         
@@ -66,21 +66,6 @@ extension MapView {
                     }
                 } receiveValue: { [weak self] response in
                     self?.facilities = response.result
-                }
-                .store(in: &cancellable)
-        }
-        
-        func getNearPerformances(facility: String, startIdx: String, endIdx: String, _ completion: @escaping ()-> Void) {
-            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, startIdx: startIdx, endIdx: endIdx))
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        return print("get near performances done!")
-                    case .failure(let error):
-                        return print(error)
-                    }
-                } receiveValue: { [weak self] response in
-                    self?.performances = response.result
                 }
                 .store(in: &cancellable)
         }

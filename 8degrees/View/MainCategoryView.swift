@@ -10,20 +10,17 @@ import Alamofire
 import Combine
 
 struct MainCategoryView: View {
-    
-    @ObservedObject var viewModel = MainCategoryView.viewModel()
+    @StateObject var viewModel = MainCategoryView.viewModel()
     var columns: [GridItem] = [GridItem(.fixed(80)),
                                GridItem(.fixed(80)),
                                GridItem(.fixed(80)),
                                GridItem(.fixed(80))]
-    
-    
     var body: some View {
         
         LazyVGrid(columns: columns, spacing: 8) {
             ForEach(self.viewModel.genres, id: \.id) { genre in
                 NavigationLink(destination: {
-                    ContentListView(genre: genre.code)
+                    ContentListView(title: genre.code, viewType: .GENRE)
                 }, label: {
                     Label(title: { Text(genre.value) }, icon: { Image(systemName: genre.image).imageScale(.large) }).labelStyle(.vertical)
                 })

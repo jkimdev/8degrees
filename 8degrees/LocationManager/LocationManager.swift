@@ -11,10 +11,9 @@ import MapKit
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManger: CLLocationManager?
+    var region = MKCoordinateRegion()
     
     @Published var location: CLLocationCoordinate2D?
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-    
     func checkIfLocationServicesIsEnabled() {
         locationManger = CLLocationManager()
         locationManger?.delegate = self
@@ -30,10 +29,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         
         DispatchQueue.main.async {
             self.location = location.coordinate
-            self.region = MKCoordinateRegion(
-                center: location.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-            )
+            self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.location?.latitude ?? 0.0, longitude: self.location?.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         }
         locationManger?.stopUpdatingLocation()
     }

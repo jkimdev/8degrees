@@ -11,7 +11,7 @@ import Combine
 
 struct SingleContentView: View {
     
-    @StateObject var viewModel = SingleContentView.viewModel()
+    @StateObject var viewModel = viewModel()
     @State var barHidden: Bool = true
     var performanceId: String
     

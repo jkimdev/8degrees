@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct UpComingView: View {
-    @ObservedObject var viewModel = UpComingView.viewModel()
+    @StateObject var viewModel = viewModel()
     var body: some View {
         VStack(alignment: .leading) {
             Text("🎭 다가오는 공연").font(.bold(size: 18)).padding(.leading)

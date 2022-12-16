@@ -10,7 +10,7 @@ import Alamofire
 import Combine
 
 struct BoxOfficeView: View {
-    @ObservedObject var viewModel = BoxOfficeView.viewModel()
+    @StateObject var viewModel = viewModel()
     var body: some View {
         
         VStack(alignment: .leading) {

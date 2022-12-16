@@ -10,9 +10,23 @@ import Alamofire
 import Kingfisher
 import Combine
 
+enum ViewType {
+    case GENRE
+    case SEARCH
+}
+
 struct ContentListView: View {
-    @StateObject var viewModel = ContentListView.viewModel()
-    var genre: String
+    @StateObject var viewModel = viewModel()
+    let facilityId: String?
+    let title: String
+    let viewType: ViewType
+    
+    init(facilityId: String? = nil, title: String, viewType: ViewType) {
+        self.facilityId = facilityId
+        self.title = title
+        self.viewType = viewType
+    }
+    
     var body: some View {
         List(self.viewModel.performances, id: \.performanceId) { performance in
             NavigationLink {
@@ -27,9 +41,14 @@ struct ContentListView: View {
                 }
             }
         }
-        .navigationBarTitle(self.viewModel.genreToString(genre))
+        .navigationBarTitle(self.viewType == .GENRE ? self.viewModel.genreToString(title) : title)
         .onAppear {
-            self.viewModel.getPerformanceList(genre: self.genre)
+            switch viewType {
+            case .GENRE:
+                self.viewModel.getPerformanceList(genre: self.title)
+            case .SEARCH:
+                self.viewModel.getNearPerformances(facility: facilityId ?? "", startIdx: "1", endIdx: "15")
+            }
         }
     }
 }
@@ -39,6 +58,21 @@ extension ContentListView {
         @Published var performances: [Performance] = []
         @Published var isLoading: Bool = false
         var cancellable = Set<AnyCancellable>()
+        
+        func getNearPerformances(facility: String, startIdx: String, endIdx: String) {
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, startIdx: startIdx, endIdx: endIdx))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        return print("get near performances done!")
+                    case .failure(let error):
+                        return print(error)
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.performances = response.result
+                }
+                .store(in: &cancellable)
+        }
         
         func getPerformanceList(genre: String) {
             //            self.isLoading = true
@@ -81,6 +115,6 @@ extension ContentListView {
 
 struct ContentListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentListView(genre: "AAAA")
+        ContentListView(title: "AAAA", viewType: .GENRE)
     }
 }
