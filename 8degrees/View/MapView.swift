@@ -25,15 +25,9 @@ struct MapView: View {
                     NavigationLink {
                         ContentListView(facilityId: place.facilityId , title: place.place, viewType: .SEARCH)
                     } label: {
-                        Circle().frame(width: 15, height: 15)
+                        Image(systemName: "mappin.circle.fill")
+                            .tint(.red)
                     }
-
-//                        .onTapGesture {
-//                            if !viewModel.performances.isEmpty {
-//                                self.isPresented = true
-//                            }
-//                            viewModel.getNearPerformances(facility: place.facilityId, startIdx: "1", endIdx: "15")
-//                        }
                 })
             }
                 .edgesIgnoringSafeArea(.all)
