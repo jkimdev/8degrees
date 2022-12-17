@@ -50,6 +50,7 @@
 		13F191A82823499F0010B748 /* _degreesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191A72823499F0010B748 /* _degreesUITests.swift */; };
 		13F191AA2823499F0010B748 /* _degreesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F191A92823499F0010B748 /* _degreesUITestsLaunchTests.swift */; };
 		BF142A47291937E300550BA1 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF142A46291937E300550BA1 /* PopUpView.swift */; };
+		BF7D714F294CE6B40087AF7F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D714E294CE6B40087AF7F /* ColorExtension.swift */; };
 		BFBC34942927AA1E00089FE3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BFBC34932927AA1E00089FE3 /* PopupView */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		13F191A72823499F0010B748 /* _degreesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _degreesUITests.swift; sourceTree = "<group>"; };
 		13F191A92823499F0010B748 /* _degreesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _degreesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BF142A46291937E300550BA1 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		BF7D714E294CE6B40087AF7F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				1351FABB28450F8E00470064 /* ImageExtension.swift */,
 				13ADAC8228F018F8006F29B3 /* StringExtension.swift */,
 				13B1E38B28F24C430056D6F4 /* SheetPresentation.swift */,
+				BF7D714E294CE6B40087AF7F /* ColorExtension.swift */,
 			);
 			path = "Extensions&Controller";
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
 				1333774428F95BF800FA11E7 /* BottomInfoView.swift in Sources */,
+				BF7D714F294CE6B40087AF7F /* ColorExtension.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */,
 				137999FC28D9E777000B3209 /* MapView.swift in Sources */,
 				13D1CD16289390B5000B282F /* APIRouter.swift in Sources */,
