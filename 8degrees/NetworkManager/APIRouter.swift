@@ -9,19 +9,19 @@ import Foundation
 import Alamofire
 
 enum APIRouter {
-    case getPerformancesByGenre(genre: String, startIdx: Int, endIdx: Int)
+    case getPerformancesByGenre(genre: String, offset: Int, limit: Int)
     case getBoxOffices
     case getPerformanceById(id: String)
-    case getUpComingPerformance(startIdx: String, endIdx: String)
+    case getUpComingPerformance(offset: Int, limit: Int)
     case getGenres
     case getNearFacility(latitude: Double, longitude: Double)
-    case getPerformanceByFacility(facilityId: String, startIdx: String, endIdx: String)
+    case getPerformanceByFacility(facilityId: String, offset: Int, limit: Int)
 }
 
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://192.168.35.14:8080")!
+        return URL(string: "http://10.17.6.28:8080")!
     }
     
     var method: HTTPMethod {
@@ -67,14 +67,14 @@ extension APIRouter: URLRequestConvertible {
                 .getPerformanceById,
                 .getGenres:
             return nil
-        case .getPerformancesByGenre(genre: let genre, startIdx: let startIdx, endIdx: let endIdx):
-            return ["genre": genre, "startIdx": startIdx, "endIdx": endIdx]
-        case .getUpComingPerformance(startIdx: let startIdx, endIdx: let endIdx):
-            return ["startIdx": startIdx, "endIdx": endIdx]
+        case .getPerformancesByGenre(genre: let genre, offset: let offset, limit: let limit):
+            return ["genre": genre, "offset": offset, "limit": limit]
+        case .getUpComingPerformance(offset: let offset, limit: let limit):
+            return ["offset": offset, "limit": limit]
         case .getNearFacility(latitude: let latitude, longitude: let longitude):
             return ["latitude": latitude, "longitude": longitude]
-        case .getPerformanceByFacility(facilityId: let facilityId, startIdx: let startIdx, endIdx: let endIdx):
-            return ["facilityId":facilityId, "startIdx": startIdx, "endIdx": endIdx]
+        case .getPerformanceByFacility(facilityId: let facilityId, offset: let offset, limit: let limit):
+            return ["facilityId":facilityId, "offset": offset, "limit": limit]
         }
     }
     

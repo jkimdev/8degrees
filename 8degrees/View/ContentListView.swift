@@ -35,19 +35,24 @@ struct ContentListView: View {
                 HStack(alignment: .top) {
                     KFImage(URL(string: performance.poster))
                         .centerCropped()
-                        .frame(width: 75, height: 100)
+                        .frame(width: 75, height: 75)
                         .cornerRadius(8)
                     Text(performance.title)
                 }
+                .onAppear {
+                    if performance.performanceId == self.viewModel.performances.last?.performanceId && self.viewModel.isFetchable {
+                        self.viewModel.getPerformanceList(genre: title, offset: self.viewModel.offset, limit: self.viewModel.limit)
+                    }
+                }
             }
         }
-        .navigationBarTitle(self.viewType == .GENRE ? self.viewModel.genreToString(title) : title)
+        .navigationBarTitle(self.viewType == .GENRE ? title.codeToString : title)
         .onAppear {
             switch viewType {
             case .GENRE:
-                self.viewModel.getPerformanceList(genre: self.title)
+                self.viewModel.getPerformanceList(genre: self.title, offset: self.viewModel.offset, limit: self.viewModel.limit)
             case .SEARCH:
-                self.viewModel.getNearPerformances(facility: facilityId ?? "", startIdx: "1", endIdx: "15")
+                self.viewModel.getNearPerformances(facility: facilityId ?? "", offset: self.viewModel.offset, limit: self.viewModel.limit)
             }
         }
     }
@@ -57,10 +62,13 @@ extension ContentListView {
     class viewModel: ObservableObject {
         @Published var performances: [Performance] = []
         @Published var isLoading: Bool = false
+        var offset: Int = 0
+        var limit: Int = 15
+        var isFetchable: Bool = true
         var cancellable = Set<AnyCancellable>()
         
-        func getNearPerformances(facility: String, startIdx: String, endIdx: String) {
-            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, startIdx: startIdx, endIdx: endIdx))
+        func getNearPerformances(facility: String, offset: Int, limit: Int) {
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformanceByFacility(facilityId: facility, offset: offset, limit: limit))
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -74,41 +82,24 @@ extension ContentListView {
                 .store(in: &cancellable)
         }
         
-        func getPerformanceList(genre: String) {
+        func getPerformanceList(genre: String, offset: Int, limit: Int) {
             //            self.isLoading = true
-            APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, startIdx: 1, endIdx: 30))
+            APIClient.shared.request(PerformanceResponse.self, router: .getPerformancesByGenre(genre: genre, offset: offset, limit: limit))
                 .sink { completion in
                     switch completion {
                     case .finished:
-                        return print("get boxoffice done!")
+                        return print("get performances done!")
                     case .failure(let error):
                         return print(error)
                     }
                 } receiveValue: { [weak self] response in
-                    self?.performances = response.result
+                    self?.offset += limit
+                    self?.performances.append(contentsOf: response.result)
+                    if response.result.count < limit {
+                        self?.isFetchable = false
+                    }
                 }
                 .store(in: &cancellable)
-        }
-        
-        func genreToString(_ genre: String) -> String {
-            switch genre {
-            case "AAAA":
-                return "연극"
-            case "AAAB":
-                return "뮤지컬"
-            case "BBBA":
-                return "무용"
-            case "CCCA":
-                return "클래식"
-            case "CCCB":
-                return "오페라"
-            case "CCCC":
-                return "국악"
-            case "EEEA":
-                return "복합"
-            default:
-                return "UNKNOWN"
-            }
         }
     }
 }
