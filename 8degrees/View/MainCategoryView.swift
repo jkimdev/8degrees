@@ -45,7 +45,7 @@ extension MainCategoryView {
                 .sink { completion in
                     switch completion {
                     case .finished:
-                        return print("get boxoffice done!")
+                        return print("get genres done!")
                     case .failure(let error):
                         return print(error)
                     }

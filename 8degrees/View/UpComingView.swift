@@ -47,11 +47,11 @@ extension UpComingView {
         var cancellable = Set<AnyCancellable>()
         
         func getUpComing() {
-            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(startIdx: "1", endIdx: "10"))
+            APIClient.shared.request(PerformanceResponse.self, router: .getUpComingPerformance(offset: 1, limit: 10))
                 .sink { completion in
                     switch completion {
                     case .finished:
-                        return print("get boxoffice done!")
+                        return print("get upcoming done!")
                     case .failure(let error):
                         return print(error)
                     }
