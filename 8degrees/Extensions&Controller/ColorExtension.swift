@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Color {
     static var random: Color {
-        let randomInt = Int.random(in: 0..<9)
+        let randomInt = Int.random(in: 0..<8)
         switch randomInt {
         case 0:
             return .blue
@@ -22,13 +22,11 @@ extension Color {
         case 4:
             return .orange
         case 5:
-            return .green
+            return .mint
         case 6:
             return .purple
         case 7:
             return yellow
-        case 8:
-            return .red
         default:
             return .random
         }
