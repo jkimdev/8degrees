@@ -17,7 +17,7 @@ struct BottomInfoView: View {
                 .frame(width: 115, height: 150, alignment: .center)
                 .cornerRadius(8)
             VStack(alignment: .leading, spacing: 8) {
-                Text(genreToString(performance.genre))
+                Text(performance.genre.codeToString)
                     .font(.light(size: 8))
                 Text(performance.title)
                     .font(.bold(size: 16))
@@ -27,27 +27,6 @@ struct BottomInfoView: View {
             Spacer()
         }
         .padding(.horizontal)
-    }
-    
-    func genreToString(_ genre: String) -> String {
-        switch genre {
-        case "AAAA":
-            return "연극"
-        case "AAAB":
-            return "뮤지컬"
-        case "BBBA":
-            return "무용"
-        case "CCCA":
-            return "클래식"
-        case "CCCB":
-            return "오페라"
-        case "CCCC":
-            return "국악"
-        case "EEEA":
-            return "복합"
-        default:
-            return "UNKNOWN"
-        }
     }
 }
 

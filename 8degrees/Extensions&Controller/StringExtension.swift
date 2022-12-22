@@ -18,4 +18,46 @@ extension String {
                                                   to: targetDate).day ?? 0
         return day != 0 ? String(day) : "-Day"
     }
+    
+    var codeToString: String {
+        switch self {
+        case "AAAA":
+            return "연극"
+        case "AAAB":
+            return "뮤지컬"
+        case "BBBA":
+            return "무용"
+        case "CCCA":
+            return "클래식"
+        case "CCCB":
+            return "오페라"
+        case "CCCC":
+            return "국악"
+        case "EEEA":
+            return "복합"
+        default:
+            return "UNKNOWN"
+        }
+    }
+    
+    var toIcon: String {
+        switch self {
+        case "AAAA":
+            return "film"
+        case "AAAB":
+            return "music.note"
+        case "BBBA":
+            return "drop"
+        case "CCCA":
+            return "bolt"
+        case "CCCB":
+            return "theatermasks"
+        case "CCCC":
+            return "leaf"
+        case "EEEA":
+            return "heart"
+        default:
+            return ""
+        }
+    }
 }
