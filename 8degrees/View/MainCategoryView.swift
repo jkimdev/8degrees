@@ -10,7 +10,7 @@ import Alamofire
 import Combine
 
 struct MainCategoryView: View {
-    @StateObject var viewModel = MainCategoryView.viewModel()
+    let genres: [Genre]
     var columns: [GridItem] = [GridItem(.fixed(80)),
                                GridItem(.fixed(80)),
                                GridItem(.fixed(80)),
@@ -18,7 +18,7 @@ struct MainCategoryView: View {
     var body: some View {
         
         LazyVGrid(columns: columns, spacing: 8) {
-            ForEach(self.viewModel.genres, id: \.id) { genre in
+            ForEach(self.genres, id: \.id) { genre in
                 NavigationLink(destination: {
                     ContentListView(title: genre.code, viewType: .GENRE)
                 }, label: {
@@ -27,38 +27,5 @@ struct MainCategoryView: View {
             }
         }
         .padding(.bottom)
-        .onAppear {
-            self.viewModel.getGenres()
-        }
-    }
-}
-
-extension MainCategoryView {
-    class viewModel: ObservableObject {
-        @Published private(set) var genres: [Genre] = []
-        @Published private(set) var isLoading: Bool = false
-        var cancellable = Set<AnyCancellable>()
-        
-        func getGenres() {
-            //            self.isLoading = true
-            APIClient.shared.request(GenreResponse.self, router: APIRouter.getGenres)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        return print("get genres done!")
-                    case .failure(let error):
-                        return print(error)
-                    }
-                } receiveValue: { [weak self] response in
-                    self?.genres = response.result
-                }
-                .store(in: &cancellable)
-        }
-    }
-}
-
-struct MainCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainCategoryView()
     }
 }

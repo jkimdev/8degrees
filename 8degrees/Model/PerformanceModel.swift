@@ -16,11 +16,11 @@ struct Performance: Decodable {
     let performanceId: String
     let title: String
     let poster: String
-    let story: String
+    let story: String?
     let genre: String
     let rating: String
     let startDate: String
     let endDate: String
-    let state: String
-    let runtime: String
+    let state: String?
+    let runtime: String?
 }

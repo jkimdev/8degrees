@@ -21,7 +21,7 @@ struct BottomInfoView: View {
                     .font(.light(size: 8))
                 Text(performance.title)
                     .font(.bold(size: 16))
-                Text(performance.runtime)
+                Text(performance.runtime ?? "")
                     .font(.light(size: 12))
             }
             Spacer()
