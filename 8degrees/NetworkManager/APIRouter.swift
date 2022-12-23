@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 enum APIRouter {
+    case getHome
     case getPerformancesByGenre(genre: String, offset: Int, limit: Int)
     case getBoxOffices
     case getPerformanceById(id: String)
@@ -21,12 +22,13 @@ enum APIRouter {
 extension APIRouter: URLRequestConvertible {
     
     var baseURL: URL {
-        return URL(string: "http://10.17.6.28:8080")!
+        return URL(string: "http://10.17.6.28:8080/api/")!
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getBoxOffices,
+        case .getHome,
+                .getBoxOffices,
                 .getPerformanceByFacility,
                 .getPerformanceById,
                 .getGenres,
@@ -39,12 +41,14 @@ extension APIRouter: URLRequestConvertible {
     
     var path: String {
         switch self {
+        case .getHome:
+            return "home"
         case .getBoxOffices:
-            return "/top10BoxOffice"
+            return "top10BoxOffice"
         case .getPerformanceById(let id):
-            return "/performance/\(id)"
+            return "performance/\(id)"
         case .getGenres:
-            return "/genres"
+            return "genres"
         case .getPerformancesByGenre:
             return "performance/genre"
         case .getUpComingPerformance:
@@ -52,7 +56,7 @@ extension APIRouter: URLRequestConvertible {
         case .getNearFacility:
             return "facility/near"
         case .getPerformanceByFacility:
-            return "/performance/facility"
+            return "performance/facility"
         }
     }
     
@@ -63,7 +67,8 @@ extension APIRouter: URLRequestConvertible {
     
     var parameters: Parameters? {
         switch self {
-        case .getBoxOffices,
+        case .getHome,
+                .getBoxOffices,
                 .getPerformanceById,
                 .getGenres:
             return nil
