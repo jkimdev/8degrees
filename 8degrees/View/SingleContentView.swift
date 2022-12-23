@@ -20,12 +20,14 @@ struct SingleContentView: View {
     
     var body: some View {
         VStack {
-            
             ScrollView(showsIndicators: false) {
                 GeometryReader { geo in
                     ZStack {
                         KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
                             .resizable()
+                            .overlay (
+                                LinearGradient(colors: [.clear, .black.opacity(0.2)], startPoint: .top, endPoint: .bottom)
+                            )
                             .scaledToFill()
                             .frame(width: geo.size.width, height: geo.size.height)
                             .clipped()
@@ -65,7 +67,7 @@ struct SingleContentView: View {
                     HStack {
                         if let actor = self.viewModel.performances?.actor {
                             ForEach(actor.prefix(3) , id: \.self) { person in
-                                Text(person.name == actor.prefix(3).last?.name ? "\(person.name) 등 \(actor.count - 3)명" : person.name)
+                                Text(person.name == actor.prefix(3).last?.name ? "\(person.name) 등" : person.name)
                             }
                         }
                         Spacer()
