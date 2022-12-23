@@ -15,13 +15,16 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 TitleView()
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     MainNoticeBannerView()
                     MainCategoryView(genres: self.viewModel.homeData?.genres ?? [])
                     BoxOfficeView(boxOffices: self.viewModel.homeData?.boxOffices ?? [])
                     UpComingView(performances: self.viewModel.homeData?.upcomingPerformances ?? [])
                     //                PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )
                     //                    .frame(width: UIScreen.main.bounds.width, height: 130)
+                }
+                .refreshable {
+                    self.viewModel.getHome()
                 }
             }
             .navigationBarTitle("")

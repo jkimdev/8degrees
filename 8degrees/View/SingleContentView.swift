@@ -15,28 +15,33 @@ struct SingleContentView: View {
     @State var barHidden: Bool = true
     var performanceId: String
     let themeColor: Color = Color.random
+    private let imageHeight: CGFloat = 300
+    private let collapsedImageHeight: CGFloat = 75
     
     var body: some View {
         VStack {
-            GeometryReader { geo in
-                ZStack {
-                    KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geo.size.width, height: geo.size.height)
-                        .clipped()
-                    Color.black.opacity(0.5)
-                    KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
-                        .resizable()
-                        .cornerRadius(16)
-                        .scaledToFit()
-                        .frame(width: geo.size.width / 1.5, height: geo.size.height / 1.5)
-                        .clipped()
-                        .shadow(color: themeColor, radius: 50)
-                }
-            }
-            .ignoresSafeArea(edges: .top)
+            
             ScrollView(showsIndicators: false) {
+                GeometryReader { geo in
+                    ZStack {
+                        KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: geo.size.width, height: geo.size.height)
+                            .clipped()
+                            .offset(x: 0, y: getOffsetForHeaderImage(geo))
+                        
+                        //                        Color.black.opacity(0.5)
+                        KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
+                            .resizable()
+                            .cornerRadius(16)
+                            .scaledToFit()
+                            .frame(width: geo.size.width / 1.5, height: getHeightForHeaderImage(geo) / 1.5 )
+                            .clipped()
+                            .shadow(color: themeColor, radius: 50)
+                    }
+                }
+                .frame(height: imageHeight)
                 VStack(spacing: 24) {
                     HStack {
                         Text(self.viewModel.performances?.title ?? "")
@@ -50,12 +55,20 @@ struct SingleContentView: View {
                                 .font(.callout)
                                 .foregroundColor(.white)
                         }
-                            .padding([.horizontal, .vertical], 8)
-                            .background(themeColor)
-                            .clipShape(Capsule())
+                        .padding([.horizontal, .vertical], 8)
+                        .background(themeColor)
+                        .clipShape(Capsule())
                         Spacer()
                         Text(self.viewModel.performances?.startDate ?? "")
                             .font(.callout)
+                    }
+                    HStack {
+                        if let actor = self.viewModel.performances?.actor {
+                            ForEach(actor.prefix(3) , id: \.self) { person in
+                                Text(person.name == actor.prefix(3).last?.name ? "\(person.name) 등 \(actor.count - 3)명" : person.name)
+                            }
+                        }
+                        Spacer()
                     }
                     VStack {
                         if self.viewModel.performances?.story != "" {
@@ -78,6 +91,37 @@ struct SingleContentView: View {
             }
         }
         .background(Color.black.opacity(0.8))
+    }
+    
+    func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
+        geometry.frame(in: .global).minY
+    }
+    
+    func getOffsetForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
+        let offset = getScrollOffset(geometry)
+        let sizeOffScreen = imageHeight - collapsedImageHeight
+        
+        if offset < -sizeOffScreen {
+            let imageOffset = abs(min(-sizeOffScreen, offset))
+            return imageOffset - sizeOffScreen
+        }
+        
+        return -offset
+    }
+    
+    func getHeightForHeaderImage(_ geometry: GeometryProxy) -> CGFloat {
+        let offset = geometry.frame(in: .global).minY
+        let imageHeight = geometry.size.height
+        
+        return offset > 0 ? imageHeight + offset : imageHeight
+    }
+    
+    func getBlurRaidusForImage(_ geometry: GeometryProxy) -> CGFloat {
+        let offset = geometry.frame(in: .global).maxY
+        let height = geometry.size.height
+        let blur = (height - max(offset, 0)) / height
+        
+        return blur * 6
     }
 }
 

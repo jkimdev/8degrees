@@ -16,6 +16,7 @@ struct Performance: Decodable {
     let performanceId: String
     let title: String
     let poster: String
+    let actor: [Actor]?
     let story: String?
     let genre: String
     let rating: String
@@ -23,4 +24,8 @@ struct Performance: Decodable {
     let endDate: String
     let state: String?
     let runtime: String?
+}
+
+struct Actor: Decodable, Hashable {
+    let name: String
 }

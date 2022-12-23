@@ -24,13 +24,13 @@ struct BoxOfficeCardView: View {
                 }
                 Text("\(boxOffice.ranking)").font(.system(size: 50).bold().italic()).foregroundColor(Color.white).padding(.bottom, -8)
             }
-            Image(systemName: "theatermasks.fill").renderingMode(.template).foregroundColor(.white)
+            Image(boxOffice.genre.toIcon).renderingMode(.template).foregroundColor(.white)
         }
     }
 }
 
 struct BoxOfficeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        BoxOfficeCardView(boxOffice: BoxOffice(performanceId: "1", ranking: 1, title: "모노폴리", genre: "Action", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif"))
+        BoxOfficeCardView(boxOffice: BoxOffice(performanceId: "1", ranking: 1, title: "모노폴리", genre: "AAAA", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif"))
     }
 }
