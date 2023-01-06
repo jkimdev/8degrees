@@ -20,8 +20,10 @@ struct ContentView: View {
                     MainCategoryView(genres: self.viewModel.homeData?.genres ?? [])
                     BoxOfficeView(boxOffices: self.viewModel.homeData?.boxOffices ?? [])
                     UpComingView(performances: self.viewModel.homeData?.upcomingPerformances ?? [])
-                    //                PageView(pages: ModelData().landmarks.map {CarouselView(landmark: $0)} )
-                    //                    .frame(width: UIScreen.main.bounds.width, height: 130)
+                    if let exhibitions = self.viewModel.homeData?.exhibitions {
+                        PageView(pages: exhibitions.map { ExhibitionView(exhibition: $0) })
+                            .aspectRatio(3 / 2, contentMode: .fit)
+                    }
                 }
                 .refreshable {
                     self.viewModel.getHome()

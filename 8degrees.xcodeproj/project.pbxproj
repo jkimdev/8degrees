@@ -54,6 +54,7 @@
 		BF5513BF29557068009D7A05 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5513BE29557068009D7A05 /* HomeModel.swift */; };
 		BF5513C12955C6B9009D7A05 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5513C02955C6B9009D7A05 /* UINavigationController.swift */; };
 		BF5513C52955C764009D7A05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5513C42955C764009D7A05 /* AppDelegate.swift */; };
+		BF6F1C38296657B2005DA723 /* ExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F1C37296657B2005DA723 /* ExhibitionView.swift */; };
 		BF7D714F294CE6B40087AF7F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D714E294CE6B40087AF7F /* ColorExtension.swift */; };
 		BFBC34942927AA1E00089FE3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BFBC34932927AA1E00089FE3 /* PopupView */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 		BF5513C02955C6B9009D7A05 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		BF5513C22955C728009D7A05 /* 8degreesDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = 8degreesDebug.entitlements; path = 8degrees/8degreesDebug.entitlements; sourceTree = SOURCE_ROOT; };
 		BF5513C42955C764009D7A05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF6F1C37296657B2005DA723 /* ExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionView.swift; sourceTree = "<group>"; };
 		BF7D714E294CE6B40087AF7F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +248,7 @@
 				136A216128E5E9A80053D5D9 /* TitleView.swift */,
 				1333774328F95BF800FA11E7 /* BottomInfoView.swift */,
 				BF142A46291937E300550BA1 /* PopUpView.swift */,
+				BF6F1C37296657B2005DA723 /* ExhibitionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				13DE5E4E284361CD0099F3B4 /* PageView.swift in Sources */,
 				136A216228E5E9A80053D5D9 /* TitleView.swift in Sources */,
 				13B1539A283DC10800A9D0FF /* MainNoticeBannerView.swift in Sources */,
+				BF6F1C38296657B2005DA723 /* ExhibitionView.swift in Sources */,
 				132933FC28C83E8800EF09A4 /* ContentListView.swift in Sources */,
 				13C2B57128B625A2003DC171 /* BoxOfficeCardView.swift in Sources */,
 				137E87092904D8350004F7E1 /* Genres.swift in Sources */,
