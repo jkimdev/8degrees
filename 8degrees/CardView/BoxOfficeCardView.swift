@@ -31,6 +31,6 @@ struct BoxOfficeCardView: View {
 
 struct BoxOfficeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        BoxOfficeCardView(boxOffice: BoxOffice(performanceId: "1", ranking: 1, title: "모노폴리", genre: "AAAA", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif"))
+        BoxOfficeCardView(boxOffice: BoxOffice(performanceId: "1", ranking: 1, title: "모노폴리", genre: "AAAA", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", story: nil))
     }
 }
