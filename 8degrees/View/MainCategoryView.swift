@@ -16,9 +16,8 @@ struct MainCategoryView: View {
                                GridItem(.fixed(80)),
                                GridItem(.fixed(80))]
     var body: some View {
-        
         LazyVGrid(columns: columns, spacing: 8) {
-            ForEach(self.genres, id: \.id) { genre in
+            ForEach(self.genres.prefix(7), id: \.id) { genre in
                 NavigationLink(destination: {
                     ContentListView(title: genre.code, viewType: .GENRE)
                 }, label: {
