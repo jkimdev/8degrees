@@ -50,8 +50,8 @@ struct SingleContentView: View {
                             .font(.largeTitle)
                         Spacer()
                     }
-                    HStack {
-                        HStack {
+                    HStack(spacing: 4) {
+                        HStack(spacing: 4) {
                             Image(systemName: self.viewModel.performances?.genre.toIcon ?? "")
                             Text("\(Genres(code: self.viewModel.performances?.genre ?? "")?.rawValue ?? "")")
                                 .font(.callout)
@@ -60,9 +60,40 @@ struct SingleContentView: View {
                         .padding([.horizontal, .vertical], 8)
                         .background(themeColor)
                         .clipShape(Capsule())
-                        Spacer()
-                        Text(self.viewModel.performances?.startDate ?? "")
+                        if self.viewModel.performances?.runtime != "" {
+                            Text(self.viewModel.performances?.runtime ?? "")
+                                .font(.callout)
+                                .foregroundColor(.white)
+                                .padding([.horizontal, .vertical], 8)
+                                .background(themeColor)
+                                .clipShape(Capsule())
+                        }
+                        Text(self.viewModel.performances?.rating ?? "")
                             .font(.callout)
+                            .foregroundColor(.white)
+                            .padding([.horizontal, .vertical], 8)
+                            .background(themeColor)
+                            .clipShape(Capsule())
+                        Spacer()
+                    }
+                    HStack {
+                        HStack(spacing: 4) {
+                            Image(systemName: "mappin.and.ellipse")
+                            Text(self.viewModel.performances?.place ?? "")
+                        }
+                        Spacer()
+                        VStack(spacing: 4) {
+                            HStack(spacing: 4) {
+                                Text("시작일")
+                                Text(self.viewModel.performances?.startDate ?? "")
+                            }
+                            .font(.callout)
+                            HStack(spacing: 4){
+                                Text("종료일")
+                                Text(self.viewModel.performances?.endDate ?? "")
+                            }
+                            .font(.callout)
+                        }
                     }
                     HStack {
                         if let actor = self.viewModel.performances?.actor {
@@ -74,25 +105,24 @@ struct SingleContentView: View {
                     }
                     VStack {
                         if self.viewModel.performances?.story != "" {
-                            Text(loremIpsum)
-                                .font(.body)
-                                .lineSpacing(12)
-                                .opacity(0.7)
+                            Text(self.viewModel.performances?.story ?? "")
                         }
                         else {
-                            
+                            Text("줄거리를 준비중입니다 😥")
                         }
                     }
+                    .font(.body)
+                    .lineSpacing(12)
+                    .opacity(0.7)
                 }
                 .foregroundColor(.white)
                 .padding([.vertical, .horizontal])
             }
-            .background(Color.black.opacity(0.2))
             .onAppear {
                 self.viewModel.getPerformance(id: performanceId)
             }
         }
-        .background(Color.black.opacity(0.8))
+        .background(Color.black.opacity(0.7))
     }
     
     func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
