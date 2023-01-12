@@ -17,12 +17,18 @@ struct ContentView: View {
                 TitleView()
                 ScrollView(showsIndicators: false) {
                     MainNoticeBannerView()
-                    MainCategoryView(genres: self.viewModel.homeData?.genres ?? [])
-                    BoxOfficeView(boxOffices: self.viewModel.homeData?.boxOffices ?? [])
-                    UpComingView(performances: self.viewModel.homeData?.upcomingPerformances ?? [])
                     if let exhibitions = self.viewModel.homeData?.exhibitions {
                         PageView(pages: exhibitions.map { ExhibitionView(exhibition: $0) })
                             .aspectRatio(3 / 2, contentMode: .fit)
+                    }
+                    if let cagegory = self.viewModel.homeData?.genres {
+                        MainCategoryView(genres: cagegory)
+                    }
+                    if let boxOffice = self.viewModel.homeData?.boxOffices {
+                        BoxOfficeView(boxOffices: boxOffice)
+                    }
+                    if let upcoming = self.viewModel.homeData?.upcomingPerformances {
+                        UpComingView(performances: upcoming)
                     }
                 }
                 .refreshable {
@@ -33,7 +39,7 @@ struct ContentView: View {
             .navigationBarHidden(true)
             
         }
-        .background(Color.indigo)
+//        .background(Color.indigo)
         .navigationViewStyle(.stack)
     }
 }
