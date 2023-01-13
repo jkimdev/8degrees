@@ -12,22 +12,26 @@ struct PageView<Page:View>: View {
     @State private var currentPage = 0
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            PageViewController(pages: pages, currentPage: $currentPage).frame(height: 200)
-            ZStack {
-                Capsule()
-                    .opacity(0.3)
-                    .frame(width: 50, height: 25)
-                    .padding()
-            }.overlay {
-                Text("\(currentPage+1)/\(pages.count)")
-                    .foregroundColor(.white)
+        VStack(alignment: .leading) {
+            Text("📸 아마추어 작가들의 반란").font(.bold(size: 18)).padding(.leading)
+            ZStack(alignment: .bottomTrailing) {
+                PageViewController(pages: pages, currentPage: $currentPage).frame(height: 200)
+                ZStack {
+                    Capsule()
+                        .opacity(0.3)
+                        .frame(width: 50, height: 25)
+                        .padding()
+                }.overlay {
+                    Text("\(currentPage+1)/\(pages.count)")
+                        .foregroundColor(.white)
+                }
+                //            PageControl(numberOfPages: pages.count, currentPage: $currentPage)
+                //                .frame(width: CGFloat(pages.count * 18))
+                //                .padding(.trailing)
             }
-            //            PageControl(numberOfPages: pages.count, currentPage: $currentPage)
-            //                .frame(width: CGFloat(pages.count * 18))
-            //                .padding(.trailing)
         }
-//        .frame(width: UIScreen.main.bounds.width, height: 130)
+        .padding(.bottom)
+        //        .frame(width: UIScreen.main.bounds.width, height: 130)
         
     }
 }

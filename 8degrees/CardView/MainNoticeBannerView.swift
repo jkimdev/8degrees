@@ -11,9 +11,9 @@ struct MainNoticeBannerView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text("힘내요! 경북/강원")
+                Text("아마추어 작가 전시 모집중!")
                     .font(.regular(size: 8))
-                Text("산불피해지역 선착순 3만원 할인")
+                Text("여러분의 전시를 무료로 등록해보세요")
                     .font(.bold(size: 16))
             }.padding()
             
