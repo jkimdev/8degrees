@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeModel: Decodable {
-    let exhibitions: [BoxOffice]?
+    let exhibitions: [Exhibition]?
     let genres: [Genre]?
     let boxOffices: [BoxOffice]?
     let upcomingPerformances: [Performance]?
