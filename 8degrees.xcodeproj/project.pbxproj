@@ -56,6 +56,8 @@
 		BF5513C12955C6B9009D7A05 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5513C02955C6B9009D7A05 /* UINavigationController.swift */; };
 		BF5513C52955C764009D7A05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5513C42955C764009D7A05 /* AppDelegate.swift */; };
 		BF6F1C38296657B2005DA723 /* ExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F1C37296657B2005DA723 /* ExhibitionView.swift */; };
+		BF78C77F2976CFE200215518 /* ExhibitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78C77E2976CFE200215518 /* ExhibitionDetailView.swift */; };
+		BF78C7812976D36D00215518 /* ExhibitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78C7802976D36D00215518 /* ExhibitionModel.swift */; };
 		BF7D714F294CE6B40087AF7F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D714E294CE6B40087AF7F /* ColorExtension.swift */; };
 		BFBC34942927AA1E00089FE3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BFBC34932927AA1E00089FE3 /* PopupView */; };
 /* End PBXBuildFile section */
@@ -129,6 +131,8 @@
 		BF5513C22955C728009D7A05 /* 8degreesDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = 8degreesDebug.entitlements; path = 8degrees/8degreesDebug.entitlements; sourceTree = SOURCE_ROOT; };
 		BF5513C42955C764009D7A05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF6F1C37296657B2005DA723 /* ExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionView.swift; sourceTree = "<group>"; };
+		BF78C77E2976CFE200215518 /* ExhibitionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailView.swift; sourceTree = "<group>"; };
+		BF78C7802976D36D00215518 /* ExhibitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionModel.swift; sourceTree = "<group>"; };
 		BF7D714E294CE6B40087AF7F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +225,7 @@
 				132933F928C5F87D00EF09A4 /* GenreModel.swift */,
 				13560A9828E9AB6D009393AE /* FacilityModel.swift */,
 				BF5513BE29557068009D7A05 /* HomeModel.swift */,
+				BF78C7802976D36D00215518 /* ExhibitionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				1333774328F95BF800FA11E7 /* BottomInfoView.swift */,
 				BF142A46291937E300550BA1 /* PopUpView.swift */,
 				BF6F1C37296657B2005DA723 /* ExhibitionView.swift */,
+				BF78C77E2976CFE200215518 /* ExhibitionDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				BF5513C12955C6B9009D7A05 /* UINavigationController.swift in Sources */,
 				13F1918F2823499F0010B748 /* ContentView.swift in Sources */,
 				132933FA28C5F87D00EF09A4 /* GenreModel.swift in Sources */,
+				BF78C77F2976CFE200215518 /* ExhibitionDetailView.swift in Sources */,
 				137999FA28D9CC48000B3209 /* LocationManager.swift in Sources */,
 				132C3C432894E1630085DCD9 /* APIClient.swift in Sources */,
 				13B1E38C28F24C430056D6F4 /* SheetPresentation.swift in Sources */,
@@ -520,6 +527,7 @@
 				13317B3B283F7ABB00094156 /* MainCategoryView.swift in Sources */,
 				132C3C412894DD030085DCD9 /* BoxOfficeView.swift in Sources */,
 				132933FE28C83ED700EF09A4 /* PerformanceModel.swift in Sources */,
+				BF78C7812976D36D00215518 /* ExhibitionModel.swift in Sources */,
 				13C843EF28BCDDE0004FFFAF /* SingBoxOfficeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,7 +686,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = 8degrees/8degreesDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"8degrees/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H679H8G3X;
 				ENABLE_PREVIEWS = YES;
@@ -713,7 +721,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"8degrees/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H679H8G3X;
 				ENABLE_PREVIEWS = YES;
