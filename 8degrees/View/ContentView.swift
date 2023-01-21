@@ -19,7 +19,7 @@ struct ContentView: View {
                     MainNoticeBannerView()
                     if let exhibitions = self.viewModel.homeData?.exhibitions {
                         PageView(pages: exhibitions.map { ExhibitionView(exhibition: $0) })
-                            .aspectRatio(3 / 2, contentMode: .fit)
+                            .aspectRatio(3 / 2, contentMode: .fill)
                     }
                     if let cagegory = self.viewModel.homeData?.genres {
                         MainCategoryView(genres: cagegory)

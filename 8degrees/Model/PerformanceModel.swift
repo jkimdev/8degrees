@@ -20,6 +20,7 @@ struct Performance: Decodable {
     let story: String?
     let genre: String
     let rating: String
+    let place: String?
     let startDate: String
     let endDate: String
     let state: String?

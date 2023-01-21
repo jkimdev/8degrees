@@ -30,8 +30,8 @@ struct BottomInfoView: View {
     }
 }
 
-struct BottomInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        BottomInfoView(performance: Performance(performanceId: "P001", title: "재밌는 공연", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", actor: [Actor(name: "지미")], story: "This is a story", genre: "AAAA", rating: "전체", place: "ABC", startDate: "2022-09-01", endDate: "2022-09-21", state: "ONGOING", runtime: "2시간"))
-    }
-}
+//struct BottomInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BottomInfoView(performance: Performance(performanceId: "P001", title: "재밌는 공연", poster: "http://www.kopis.or.kr/upload/pfmPoster/PF_PF163755_200422_092850.gif", actor: [Actor(name: "지미")], story: "This is a story", genre: "AAAA", rating: "전체", place: "ABC", startDate: "2022-09-01", endDate: "2022-09-21", state: "ONGOING", runtime: "2시간"))
+//    }
+//}

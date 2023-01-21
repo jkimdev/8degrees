@@ -15,6 +15,7 @@ struct Exhibition: Decodable {
     let poster: String
     let story: String
     let area: String
+    let place: String
     let startDate: String
     let endDate: String
     let link: String

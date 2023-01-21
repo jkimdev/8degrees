@@ -15,7 +15,7 @@ struct PageView<Page:View>: View {
         VStack(alignment: .leading) {
             Text("📸 아마추어 작가들의 반란").font(.bold(size: 18)).padding(.leading)
             ZStack(alignment: .bottomTrailing) {
-                PageViewController(pages: pages, currentPage: $currentPage).frame(height: 200)
+                PageViewController(pages: pages, currentPage: $currentPage)
                 ZStack {
                     Capsule()
                         .opacity(0.3)
