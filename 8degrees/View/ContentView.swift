@@ -17,7 +17,7 @@ struct ContentView: View {
                 TitleView()
                 ScrollView(showsIndicators: false) {
                     MainNoticeBannerView()
-                    if let exhibitions = self.viewModel.homeData?.exhibitions {
+                    if let exhibitions = self.viewModel.homeData?.exhibitions,  !exhibitions.isEmpty {
                         PageView(pages: exhibitions.map { ExhibitionView(exhibition: $0) })
                             .aspectRatio(3 / 2, contentMode: .fill)
                     }

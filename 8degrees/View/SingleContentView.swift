@@ -5,16 +5,14 @@
 //  Created by 김재민 on 2022/05/05.
 //
 
-import SwiftUI
-import Kingfisher
 import Combine
+import Kingfisher
+import SwiftUI
 
 struct SingleContentView: View {
-    
     @StateObject var viewModel = viewModel()
     @State var barHidden: Bool = true
     var performanceId: String
-    let themeColor: Color = Color.random
     private let imageHeight: CGFloat = 300
     private let collapsedImageHeight: CGFloat = 75
     
@@ -25,11 +23,12 @@ struct SingleContentView: View {
                     ZStack {
                         KFImage(URL(string: self.viewModel.performances?.poster ?? ""))
                             .resizable()
-                            .overlay (
-                                LinearGradient(colors: [.clear, .black.opacity(0.2)], startPoint: .top, endPoint: .bottom)
+                            .overlay(
+                                LinearGradient(colors: [.clear, .black.opacity(0.5)], startPoint: .top, endPoint: .bottom)
                             )
                             .scaledToFill()
                             .frame(width: geo.size.width, height: geo.size.height)
+                            .blur(radius: 5)
                             .clipped()
                             .offset(x: 0, y: getOffsetForHeaderImage(geo))
                         
@@ -38,9 +37,9 @@ struct SingleContentView: View {
                             .resizable()
                             .cornerRadius(16)
                             .scaledToFit()
-                            .frame(width: geo.size.width / 1.5, height: getHeightForHeaderImage(geo) / 1.5 )
+                            .frame(width: geo.size.width / 1.5, height: getHeightForHeaderImage(geo) / 1.5)
                             .clipped()
-                            .shadow(color: themeColor, radius: 50)
+                            .shadow(color: .gray, radius: 5)
                     }
                 }
                 .frame(height: imageHeight)
@@ -48,34 +47,42 @@ struct SingleContentView: View {
                     HStack {
                         Text(self.viewModel.performances?.title ?? "")
                             .font(.largeTitle)
+                            .foregroundColor(Color.black)
                         Spacer()
                     }
+                    .padding(.horizontal)
                     HStack(spacing: 4) {
-                        HStack(spacing: 4) {
-                            Image(systemName: self.viewModel.performances?.genre.toIcon ?? "")
-                            Text("\(Genres(code: self.viewModel.performances?.genre ?? "")?.rawValue ?? "")")
-                                .font(.callout)
-                                .foregroundColor(.white)
+                        if let genre = Genres(code: self.viewModel.performances?.genre ?? "")?.rawValue {
+                            HStack(spacing: 4) {
+                                Image(systemName: self.viewModel.performances?.genre.toIcon ?? "")
+                                    .renderingMode(.template)
+                                    .foregroundColor(.white)
+                                Text(genre)
+                                    .font(.callout)
+                                    .foregroundColor(.white)
+                            }
+                            .padding([.horizontal, .vertical], 8)
+                            .background(Color.black)
+                            .clipShape(Capsule())
                         }
-                        .padding([.horizontal, .vertical], 8)
-                        .background(themeColor)
-                        .clipShape(Capsule())
+
                         if self.viewModel.performances?.runtime != "" {
                             Text(self.viewModel.performances?.runtime ?? "")
                                 .font(.callout)
                                 .foregroundColor(.white)
                                 .padding([.horizontal, .vertical], 8)
-                                .background(themeColor)
+                                .background(Color.black)
                                 .clipShape(Capsule())
                         }
                         Text(self.viewModel.performances?.rating ?? "")
                             .font(.callout)
                             .foregroundColor(.white)
                             .padding([.horizontal, .vertical], 8)
-                            .background(themeColor)
+                            .background(Color.black)
                             .clipShape(Capsule())
                         Spacer()
                     }
+                    .padding(.horizontal)
                     HStack {
                         HStack(spacing: 4) {
                             Image(systemName: "mappin.and.ellipse")
@@ -88,41 +95,44 @@ struct SingleContentView: View {
                                 Text(self.viewModel.performances?.startDate ?? "")
                             }
                             .font(.callout)
-                            HStack(spacing: 4){
+                            HStack(spacing: 4) {
                                 Text("종료일")
                                 Text(self.viewModel.performances?.endDate ?? "")
                             }
                             .font(.callout)
                         }
                     }
+                    .padding(.horizontal)
+
                     HStack {
-                        if let actor = self.viewModel.performances?.actor {
-                            ForEach(actor.prefix(3) , id: \.self) { person in
-                                Text(person.name == actor.prefix(3).last?.name ? "\(person.name) 등" : person.name)
+                        if let actor = self.viewModel.performances?.actor, !actor.isEmpty {
+                            ForEach(actor.prefix(3), id: \.self) { person in
+                                Text(person == actor.prefix(3).last && actor.count > 1 ? "\(person) 등" : person)
                             }
                         }
                         Spacer()
                     }
+                    .padding(.horizontal)
                     VStack {
-                        if self.viewModel.performances?.story != "" {
-                            Text(self.viewModel.performances?.story ?? "")
+                        if let urls = self.viewModel.performances?.strurls, !urls.isEmpty {
+                            ForEach(urls, id: \.self) { imageURL in
+                                KFImage(URL(string: imageURL))
+                                    .resizable()
+                            }
                         }
                         else {
                             Text("줄거리를 준비중입니다 😥")
+                                .font(.body)
+                                .foregroundColor(.black)
                         }
                     }
-                    .font(.body)
-                    .lineSpacing(12)
-                    .opacity(0.7)
+                    .padding(.vertical)
                 }
-                .foregroundColor(.white)
-                .padding([.vertical, .horizontal])
             }
             .onAppear {
                 self.viewModel.getPerformance(id: performanceId)
             }
         }
-        .background(Color.black.opacity(0.7))
     }
     
     func getScrollOffset(_ geometry: GeometryProxy) -> CGFloat {
@@ -183,7 +193,7 @@ extension SingleContentView {
 
 struct SingleContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleContentView(performanceId: "PF189439")
+        SingleContentView(performanceId: "PF130891")
     }
 }
 

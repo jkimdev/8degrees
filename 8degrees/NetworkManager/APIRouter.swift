@@ -5,8 +5,8 @@
 //  Created by 김재민 on 2022/07/29.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 enum APIRouter {
     case getHome
@@ -20,21 +20,20 @@ enum APIRouter {
 }
 
 extension APIRouter: URLRequestConvertible {
-    
     var baseURL: URL {
-        return URL(string: "http://192.168.35.180:8080/api/")!
+        return URL(string: "http://54.180.3.150:8080/api/")!
     }
     
     var method: HTTPMethod {
         switch self {
         case .getHome,
-                .getBoxOffices,
-                .getPerformanceByFacility,
-                .getPerformanceById,
-                .getGenres,
-                .getPerformancesByGenre,
-                .getUpComingPerformance,
-                .getNearFacility:
+             .getBoxOffices,
+             .getPerformanceByFacility,
+             .getPerformanceById,
+             .getGenres,
+             .getPerformancesByGenre,
+             .getUpComingPerformance,
+             .getNearFacility:
             return .get
         }
     }
@@ -61,16 +60,16 @@ extension APIRouter: URLRequestConvertible {
     }
     
     var header: HTTPHeader? {
-        /// todo ::  User-Agent iOS
+        // TODO: User-Agent iOS
         return nil
     }
     
     var parameters: Parameters? {
         switch self {
         case .getHome,
-                .getBoxOffices,
-                .getPerformanceById,
-                .getGenres:
+             .getBoxOffices,
+             .getPerformanceById,
+             .getGenres:
             return nil
         case .getPerformancesByGenre(genre: let genre, offset: let offset, limit: let limit):
             return ["genre": genre, "offset": offset, "limit": limit]
@@ -79,7 +78,7 @@ extension APIRouter: URLRequestConvertible {
         case .getNearFacility(latitude: let latitude, longitude: let longitude):
             return ["latitude": latitude, "longitude": longitude]
         case .getPerformanceByFacility(facilityId: let facilityId, offset: let offset, limit: let limit):
-            return ["facilityId":facilityId, "offset": offset, "limit": limit]
+            return ["facilityId": facilityId, "offset": offset, "limit": limit]
         }
     }
     
@@ -87,11 +86,10 @@ extension APIRouter: URLRequestConvertible {
         let url = baseURL
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        urlRequest.httpMethod  = method.rawValue
+        urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = nil
         
         let encoding = URLEncoding.default
         return try encoding.encode(urlRequest, with: parameters)
     }
-    
 }

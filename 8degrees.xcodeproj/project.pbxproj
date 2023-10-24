@@ -58,7 +58,6 @@
 		BF6F1C38296657B2005DA723 /* ExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F1C37296657B2005DA723 /* ExhibitionView.swift */; };
 		BF78C77F2976CFE200215518 /* ExhibitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78C77E2976CFE200215518 /* ExhibitionDetailView.swift */; };
 		BF78C7812976D36D00215518 /* ExhibitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78C7802976D36D00215518 /* ExhibitionModel.swift */; };
-		BF7D714F294CE6B40087AF7F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D714E294CE6B40087AF7F /* ColorExtension.swift */; };
 		BFBC34942927AA1E00089FE3 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BFBC34932927AA1E00089FE3 /* PopupView */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +132,6 @@
 		BF6F1C37296657B2005DA723 /* ExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionView.swift; sourceTree = "<group>"; };
 		BF78C77E2976CFE200215518 /* ExhibitionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailView.swift; sourceTree = "<group>"; };
 		BF78C7802976D36D00215518 /* ExhibitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionModel.swift; sourceTree = "<group>"; };
-		BF7D714E294CE6B40087AF7F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +172,6 @@
 				1351FABB28450F8E00470064 /* ImageExtension.swift */,
 				13ADAC8228F018F8006F29B3 /* StringExtension.swift */,
 				13B1E38B28F24C430056D6F4 /* SheetPresentation.swift */,
-				BF7D714E294CE6B40087AF7F /* ColorExtension.swift */,
 				BF5513C02955C6B9009D7A05 /* UINavigationController.swift */,
 			);
 			path = "Extensions&Controller";
@@ -292,6 +289,7 @@
 		13F1918B2823499F0010B748 /* 8degrees */ = {
 			isa = PBXGroup;
 			children = (
+				BF047F642AE7E70C0040A5B5 /* Utils */,
 				BF5513C32955C74F009D7A05 /* UIKit */,
 				BF5513C22955C728009D7A05 /* 8degreesDebug.entitlements */,
 				137E87072904D8270004F7E1 /* Enums */,
@@ -334,6 +332,13 @@
 				13F191A92823499F0010B748 /* _degreesUITestsLaunchTests.swift */,
 			);
 			path = 8degreesUITests;
+			sourceTree = "<group>";
+		};
+		BF047F642AE7E70C0040A5B5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		BF5513C32955C74F009D7A05 /* UIKit */ = {
@@ -516,7 +521,6 @@
 				13DE5E502843657D0099F3B4 /* SinglePageView.swift in Sources */,
 				13F1918D2823499F0010B748 /* _degreesApp.swift in Sources */,
 				1333774428F95BF800FA11E7 /* BottomInfoView.swift in Sources */,
-				BF7D714F294CE6B40087AF7F /* ColorExtension.swift in Sources */,
 				1363FCDF283B991700DC2D00 /* SingleContentView.swift in Sources */,
 				137999FC28D9E777000B3209 /* MapView.swift in Sources */,
 				13D1CD16289390B5000B282F /* APIRouter.swift in Sources */,
@@ -686,7 +690,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = 8degrees/8degreesDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"8degrees/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H679H8G3X;
 				ENABLE_PREVIEWS = YES;
@@ -701,7 +705,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -721,7 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"8degrees/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H679H8G3X;
 				ENABLE_PREVIEWS = YES;
@@ -736,7 +740,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
